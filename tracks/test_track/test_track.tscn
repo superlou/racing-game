@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://btc18bdu05ji0"]
+[gd_scene load_steps=9 format=3 uid="uid://btc18bdu05ji0"]
 
 [ext_resource type="PackedScene" uid="uid://40ykkxyji2i5" path="res://models/car/car.tscn" id="1_dyo7t"]
 [ext_resource type="Shader" uid="uid://bkkupvfbvk0s8" path="res://shaders/dashed_grid_shader.gdshader" id="1_uau4o"]
@@ -15,7 +15,7 @@ ambient_light_source = 3
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a5pqg"]
 render_priority = 0
 shader = ExtResource("1_uau4o")
-shader_parameter/subdivisions = 32.0
+shader_parameter/subdivisions = 64.0
 shader_parameter/grid_width = 0.02
 shader_parameter/background_color = Color(0.2, 0.2, 0.2, 1)
 shader_parameter/background_color_two = Color(0.1, 0.1, 0.1, 1)
@@ -37,7 +37,10 @@ shader_parameter/in_dashed_count_x = 6.0
 shader_parameter/in_dashed_count_y = 6.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7t17a"]
-size = Vector3(100, 0.2, 100)
+size = Vector3(500, 0.2, 500)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uau4o"]
+size = Vector3(10.2249, 1, 15.9863)
 
 [node name="TestTrack" type="Node3D"]
 
@@ -52,7 +55,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 metadata/_edit_lock_ = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Ground"]
-size = Vector3(100, 0.2, 100)
+size = Vector3(500, 0.2, 500)
 material = SubResource("ShaderMaterial_a5pqg")
 metadata/_edit_lock_ = true
 
@@ -62,3 +65,10 @@ metadata/_edit_lock_ = true
 
 [node name="Car" parent="." instance=ExtResource("1_dyo7t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60367, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.983493, -0.180948, 0, 0.180948, 0.983493, 0, 0, -5.09701)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.309311, -2.08862)
+shape = SubResource("BoxShape3D_uau4o")

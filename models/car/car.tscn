@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://40ykkxyji2i5"]
+[gd_scene load_steps=5 format=3 uid="uid://40ykkxyji2i5"]
 
 [ext_resource type="Script" uid="uid://c6k4ntrhq2ip4" path="res://models/car/car.gd" id="1_bcuj8"]
 [ext_resource type="PackedScene" uid="uid://be1o6fgbedwev" path="res://models/car/tracon.tscn" id="2_e52qm"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e52qm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8thfb"]
 size = Vector3(1, 0.203125, 1)
 
 [node name="Car" type="RigidBody3D"]
 mass = 50.0
+physics_material_override = SubResource("PhysicsMaterial_e52qm")
 script = ExtResource("1_bcuj8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
