@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://btc18bdu05ji0"]
+[gd_scene load_steps=10 format=3 uid="uid://btc18bdu05ji0"]
 
 [ext_resource type="PackedScene" uid="uid://40ykkxyji2i5" path="res://models/car/car.tscn" id="1_dyo7t"]
 [ext_resource type="Shader" uid="uid://bkkupvfbvk0s8" path="res://shaders/dashed_grid_shader.gdshader" id="1_uau4o"]
+[ext_resource type="Script" uid="uid://d2oayky7br4dx" path="res://systems/interpolated_camera.gd" id="3_a5pqg"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_uau4o"]
 
@@ -49,6 +50,7 @@ environment = SubResource("Environment_uau4o")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 0.0890334, 0.996029, 0, -0.996029, 0.0890334, -6.03195, 4.21754, 0)
+shadow_enabled = true
 
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
@@ -72,3 +74,11 @@ transform = Transform3D(1, 0, 0, 0, 0.983493, -0.180948, 0, 0.180948, 0.983493, 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.309311, -2.08862)
 shape = SubResource("BoxShape3D_uau4o")
+
+[node name="InterpolatedCamera" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 0.894427, 0.447214, 0, -0.447214, 0.894427, 0, 3.60367, 4)
+script = ExtResource("3_a5pqg")
+lerp_speed = 3.0
+target = NodePath("../Car")
+offset = Vector3(0, 2, 4)
+metadata/_custom_type_script = "uid://d2oayky7br4dx"
