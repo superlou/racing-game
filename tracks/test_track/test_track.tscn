@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://btc18bdu05ji0"]
+
+[ext_resource type="PackedScene" uid="uid://40ykkxyji2i5" path="res://models/car/car.tscn" id="1_dyo7t"]
+[ext_resource type="Shader" uid="uid://bkkupvfbvk0s8" path="res://shaders/dashed_grid_shader.gdshader" id="1_uau4o"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_uau4o"]
+
+[sub_resource type="Sky" id="Sky_a5pqg"]
+sky_material = SubResource("PhysicalSkyMaterial_uau4o")
+
+[sub_resource type="Environment" id="Environment_uau4o"]
+sky = SubResource("Sky_a5pqg")
+ambient_light_source = 3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a5pqg"]
+render_priority = 0
+shader = ExtResource("1_uau4o")
+shader_parameter/subdivisions = 32.0
+shader_parameter/grid_width = 0.02
+shader_parameter/background_color = Color(0.2, 0.2, 0.2, 1)
+shader_parameter/background_color_two = Color(0.1, 0.1, 0.1, 1)
+shader_parameter/grid_color = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/dashed_scale_x = 0.02
+shader_parameter/dashed_scale_y = 0.02
+shader_parameter/dashed_count_x = 1.0
+shader_parameter/dashed_count_y = 1.0
+shader_parameter/point_width = 0.021
+shader_parameter/point_color = Color(0, 0, 0, 1)
+shader_parameter/point_scale_x = 0.05
+shader_parameter/point_scale_y = 0.05
+shader_parameter/inside_width = 0.01
+shader_parameter/inside_subdivisions = 6.0
+shader_parameter/inside_color = Color(0.4, 0.4, 0.4, 1)
+shader_parameter/in_dashed_scale_x = 0.3
+shader_parameter/in_dashed_scale_y = 0.3
+shader_parameter/in_dashed_count_x = 6.0
+shader_parameter/in_dashed_count_y = 6.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7t17a"]
+size = Vector3(100, 0.2, 100)
+
+[node name="TestTrack" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_uau4o")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.0890334, 0.996029, 0, -0.996029, 0.0890334, -6.03195, 4.21754, 0)
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+metadata/_edit_lock_ = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Ground"]
+size = Vector3(100, 0.2, 100)
+material = SubResource("ShaderMaterial_a5pqg")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_7t17a")
+metadata/_edit_lock_ = true
+
+[node name="Car" parent="." instance=ExtResource("1_dyo7t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60367, 0)

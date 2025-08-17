@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://40ykkxyji2i5"]
+
+[ext_resource type="Script" uid="uid://c6k4ntrhq2ip4" path="res://models/car/car.gd" id="1_bcuj8"]
+[ext_resource type="PackedScene" uid="uid://be1o6fgbedwev" path="res://models/car/tracon.tscn" id="2_e52qm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8thfb"]
+size = Vector3(1, 0.203125, 1)
+
+[node name="Car" type="RigidBody3D"]
+mass = 50.0
+script = ExtResource("1_bcuj8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.100586, 0)
+shape = SubResource("BoxShape3D_8thfb")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+size = Vector3(1, 0.2, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -0.636735)
+size = Vector3(0.481445, 0.2, 0.276367)
+
+[node name="Tracons" type="Node3D" parent="."]
+
+[node name="Tracon1" parent="Tracons" instance=ExtResource("2_e52qm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.642436, 0.0639072, 0.644953)
+
+[node name="Tracon2" parent="Tracons" instance=ExtResource("2_e52qm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.647927, 0.0639072, 0.644953)
+
+[node name="Tracon3" parent="Tracons" instance=ExtResource("2_e52qm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.647927, 0.0639072, -0.645409)
+
+[node name="Tracon4" parent="Tracons" instance=ExtResource("2_e52qm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.636945, 0.0639072, -0.634427)
+
+[node name="EngineRay" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.00150734, 0.581683)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.163644, 1.68382, 3.27944)

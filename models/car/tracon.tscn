@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://be1o6fgbedwev"]
+
+[ext_resource type="Script" uid="uid://b670ux2pi6x1x" path="res://models/car/tracon.gd" id="1_lmeni"]
+
+[node name="Tracon" type="Node3D"]
+script = ExtResource("1_lmeni")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, -2, 0)
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="."]
+inner_radius = 0.0508328
+outer_radius = 0.103733
+
+[node name="CSGTorus3D2" type="CSGTorus3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0412863, 0)
+inner_radius = 0.0267294
+outer_radius = 0.0844596
+
+[node name="CSGTorus3D3" type="CSGTorus3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0755196, 0)
+inner_radius = 0.0915889
+outer_radius = 0.139526
