@@ -6,7 +6,7 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e52qm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8thfb"]
-size = Vector3(1, 0.203125, 1)
+size = Vector3(1, 0.203125, 0.998535)
 
 [node name="Car" type="RigidBody3D"]
 mass = 50.0
@@ -14,15 +14,15 @@ physics_material_override = SubResource("PhysicsMaterial_e52qm")
 script = ExtResource("1_bcuj8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.100586, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0738869, 0.000732422)
 shape = SubResource("BoxShape3D_8thfb")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0733009, 0)
 size = Vector3(1, 0.2, 1)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -0.636735)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0733009, -0.636735)
 size = Vector3(0.481445, 0.2, 0.276367)
 
 [node name="Tracons" type="Node3D" parent="."]
@@ -40,4 +40,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.647927, 0.0639072, -0.64540
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.636945, 0.0639072, -0.634427)
 
 [node name="EngineRay" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.00150734, 0.581683)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.107893, 0.581683)
+
+[node name="CenterOfDrag" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.872647)
