@@ -6,7 +6,7 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e52qm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8thfb"]
-size = Vector3(1, 0.203125, 0.998535)
+size = Vector3(1, 0.203125, 1.74768)
 
 [node name="Car" type="RigidBody3D"]
 mass = 50.0
@@ -14,12 +14,44 @@ physics_material_override = SubResource("PhysicsMaterial_e52qm")
 script = ExtResource("1_bcuj8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0738869, 0.000732422)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0738869, 0.110291)
 shape = SubResource("BoxShape3D_8thfb")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0733009, 0)
 size = Vector3(1, 0.2, 1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0733009, 0.679199)
+size = Vector3(0.834961, 0.2, 0.354492)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0733009, 0.911045)
+size = Vector3(1.05371, 0.2, 0.116699)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.442567, 0.712971)
+size = Vector3(0.634766, 0.538702, 0.194214)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.268585, 0.403755)
+size = Vector3(0.588135, 0.190738, 0.393494)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.376862, 0.245789, 0.220853)
+size = Vector3(0.113708, 0.145148, 1.40195)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3757, 0.245789, 0.220853)
+size = Vector3(0.113708, 0.145148, 1.40195)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.547636, -0.836717, 0, 0.836717, 0.547636, 0, 0.335843, -0.51928)
+size = Vector3(0.441406, 0.764713, 0.284119)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999075, 0.0429917, 0, -0.0429917, 0.999075, 0, 0.812108, 0.668203)
+size = Vector3(0.31665, 0.194952, 0.115601)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0733009, -0.636735)
@@ -44,3 +76,19 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.1
 
 [node name="CenterOfDrag" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.872647)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.642382, 0.0225171, 0.644474)
+radius = 0.2
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.642, 0.0228764, 0.644)
+radius = 0.2
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.642382, 0.0225171, -0.642799)
+radius = 0.2
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.642, 0.0228764, -0.643272)
+radius = 0.2
