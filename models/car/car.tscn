@@ -75,7 +75,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.636945, 0.0639072, -0.6344
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.107893, 0.581683)
 
 [node name="CenterOfDrag" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.872647)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.784653)
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.642382, 0.0225171, 0.644474)

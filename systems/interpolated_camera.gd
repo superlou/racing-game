@@ -8,12 +8,12 @@ class_name InterpolatedCamera
 
 
 func _physics_process(delta: float) -> void:
-    if !target:
-        return
-    
-    var target_transform = target.global_transform.translated_local(offset)
-    global_transform = global_transform.interpolate_with(
-        target_transform,
-        lerp_speed * get_process_delta_time()
-    )
-    look_at(target.global_transform.origin, target.transform.basis.y)
+	if !target:
+		return
+	
+	var target_transform = target.global_transform.translated_local(offset)
+	global_transform = global_transform.interpolate_with(
+		target_transform,
+		lerp_speed * get_process_delta_time()
+	)
+	look_at(target.global_transform.origin, target.transform.basis.y)

@@ -45,11 +45,8 @@ func apply_engine() -> void:
 func apply_drag(delta:float) -> void:
 	var velocity := linear_velocity
 	var drag := 0.5 * drag_scale * velocity.length() ** 2
-	print(drag)
 	var drag_vector := -drag * velocity.normalized()
 	apply_force(drag_vector, basis * center_of_drag.position)
-
-	print(center_of_drag.global_position)
 
 	if show_forces:
 		DebugDraw3D.draw_arrow(
