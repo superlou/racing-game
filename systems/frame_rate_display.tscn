@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://f14avd7gafev"]
+
+[ext_resource type="Script" uid="uid://r4nmvhdjalpq" path="res://systems/frame_rate_display.gd" id="1_6urqw"]
+
+[node name="FrameRateDisplay" type="Node2D"]
+script = ExtResource("1_6urqw")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "-- FPS"
