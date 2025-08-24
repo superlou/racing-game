@@ -1,4 +1,7 @@
 extends RigidBody3D
+class_name Car
+
+signal speed_changed(speed:float)
 
 @export var thrust := 400.0
 @export var turn_rate := 3.0
@@ -81,3 +84,7 @@ func _physics_process(delta:float) -> void:
 	apply_drag(delta)
 	apply_turn(delta)
 	apply_lateral_stabilization(delta)
+
+
+func _process(delta: float) -> void:
+	speed_changed.emit(linear_velocity.abs())
