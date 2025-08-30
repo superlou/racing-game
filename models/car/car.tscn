@@ -9,6 +9,7 @@
 size = Vector3(1, 0.203125, 1.74768)
 
 [node name="Car" type="RigidBody3D"]
+collision_layer = 3
 mass = 50.0
 physics_material_override = SubResource("PhysicsMaterial_e52qm")
 center_of_mass_mode = 1
