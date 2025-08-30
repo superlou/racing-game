@@ -6,9 +6,9 @@ class_name PositionLeader
 @export var debug := false
 @onready var parent:RigidBody3D = get_parent()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if debug:
 		DebugDraw3D.draw_sphere(global_position)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	position = gain * (parent.basis.inverse() * parent.linear_velocity) + offset
