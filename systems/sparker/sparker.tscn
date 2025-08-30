@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://x7yofvc87nxo"]
+
+[ext_resource type="Script" uid="uid://cbaoktjo3stwf" path="res://systems/sparker/sparker.gd" id="1_mjuy1"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mjuy1"]
+spread = 10.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e52qm"]
+emission_enabled = true
+emission = Color(0.901961, 0.768627, 0, 1)
+emission_energy_multiplier = 10.0
+use_particle_trails = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_tu6le"]
+material = SubResource("StandardMaterial3D_e52qm")
+size = 0.02
+
+[node name="Sparker" type="Node3D"]
+script = ExtResource("1_mjuy1")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 128
+lifetime = 0.5
+trail_enabled = true
+trail_lifetime = 0.8
+process_material = SubResource("ParticleProcessMaterial_mjuy1")
+draw_pass_1 = SubResource("RibbonTrailMesh_tu6le")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, -0.1, 0)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="."]

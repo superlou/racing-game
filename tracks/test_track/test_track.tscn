@@ -16,6 +16,7 @@ sky_material = SubResource("PhysicalSkyMaterial_uau4o")
 [sub_resource type="Environment" id="Environment_uau4o"]
 sky = SubResource("Sky_a5pqg")
 ambient_light_source = 3
+glow_enabled = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a5pqg"]
 render_priority = 0
@@ -84,7 +85,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60367, 0)
 [node name="PositionLeader" type="Marker3D" parent="Car"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.119063, 0)
 script = ExtResource("7_0gvb3")
-gain = 0.0
+gain = 0.2
 offset = Vector3(0, 2, 0)
 metadata/_custom_type_script = "uid://gdl2esxd1oi"
 

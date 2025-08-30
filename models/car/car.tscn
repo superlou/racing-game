@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://40ykkxyji2i5"]
+[gd_scene load_steps=6 format=3 uid="uid://40ykkxyji2i5"]
 
 [ext_resource type="Script" uid="uid://c6k4ntrhq2ip4" path="res://models/car/car.gd" id="1_bcuj8"]
 [ext_resource type="PackedScene" uid="uid://be1o6fgbedwev" path="res://models/car/tracon.tscn" id="2_e52qm"]
+[ext_resource type="PackedScene" uid="uid://x7yofvc87nxo" path="res://systems/sparker/sparker.tscn" id="3_4ro1q"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e52qm"]
 
@@ -94,3 +95,21 @@ radius = 0.2
 [node name="CSGSphere3D4" type="CSGSphere3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.642, 0.0228764, -0.643272)
 radius = 0.2
+
+[node name="Sparker" parent="." instance=ExtResource("3_4ro1q")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.642, -0.160371, -0.643272)
+
+[node name="Sparker2" parent="." instance=ExtResource("3_4ro1q")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.642, -0.160371, 0.64396)
+
+[node name="Sparker3" parent="." instance=ExtResource("3_4ro1q")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.645232, -0.160371, -0.643272)
+
+[node name="Sparker5" parent="." instance=ExtResource("3_4ro1q")]
+transform = Transform3D(-4.37114e-08, 0, -1, -0.610104, 0.792322, 2.66685e-08, 0.792322, 0.610104, -3.46335e-08, 0.642, -0.112123, -0.773943)
+
+[node name="Sparker6" parent="." instance=ExtResource("3_4ro1q")]
+transform = Transform3D(-4.37114e-08, 0, -1, -0.610104, 0.792322, 2.66685e-08, 0.792322, 0.610104, -3.46335e-08, -0.645232, -0.112123, -0.773943)
+
+[node name="Sparker4" parent="." instance=ExtResource("3_4ro1q")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.645232, -0.160371, 0.64396)
