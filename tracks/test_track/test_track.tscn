@@ -1,12 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://btc18bdu05ji0"]
+[gd_scene load_steps=18 format=3 uid="uid://btc18bdu05ji0"]
 
 [ext_resource type="PackedScene" uid="uid://40ykkxyji2i5" path="res://models/car/car.tscn" id="1_dyo7t"]
 [ext_resource type="Shader" uid="uid://bkkupvfbvk0s8" path="res://shaders/dashed_grid_shader.gdshader" id="1_uau4o"]
 [ext_resource type="Script" uid="uid://d2oayky7br4dx" path="res://systems/cameras/interpolated_camera.gd" id="3_a5pqg"]
 [ext_resource type="PackedScene" uid="uid://f14avd7gafev" path="res://hud/frame_rate_display.tscn" id="4_b3ypf"]
 [ext_resource type="PackedScene" uid="uid://cjklp2selxgut" path="res://hud/hud.tscn" id="5_thbh6"]
-[ext_resource type="Script" uid="uid://duqx0kmuui0tf" path="res://systems/racing/checkpoint.gd" id="6_woq5q"]
 [ext_resource type="Script" uid="uid://gdl2esxd1oi" path="res://systems/cameras/position_leader.gd" id="7_0gvb3"]
+[ext_resource type="Script" uid="uid://b40o4uigxgwah" path="res://systems/racing/race_manager.gd" id="7_kyfml"]
+[ext_resource type="PackedScene" uid="uid://mm7d4g0vjj6u" path="res://models/gates/SimpleGate.tscn" id="8_kyfml"]
+[ext_resource type="Script" uid="uid://c3hv4p6gbyski" path="res://systems/racing/circuit.gd" id="8_qvsye"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_uau4o"]
 
@@ -53,9 +55,6 @@ data = PackedVector3Array(-11.0607, -0.5, 5.5591, -11.0607, -0.5, -5.5591, -11.0
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_thbh6"]
 data = PackedVector3Array(-6.06696, -0.5, 5.5591, -6.06696, -0.5, -5.5591, -6.06696, 0.5, -5.5591, 6.06696, -0.5, -5.5591, -6.06696, -0.5, -5.5591, -6.06696, -0.5, 5.5591, -6.06696, 0.5, -5.5591, -6.06696, -0.5, -5.5591, 6.06696, -0.5, -5.5591, -6.06696, 0.5, -5.5591, -6.06696, 0.5, 5.5591, -6.06696, -0.5, 5.5591, -6.06696, -0.5, 5.5591, -6.06696, 0.5, 5.5591, 6.06696, 0.5, 5.5591, 6.06696, 0.5, 5.5591, -6.06696, 0.5, 5.5591, -6.06696, 0.5, -5.5591, -6.06696, -0.5, 5.5591, 6.06696, -0.5, 5.5591, 6.06696, -0.5, -5.5591, 6.06696, 0.5, 5.5591, 6.06696, -0.5, 5.5591, -6.06696, -0.5, 5.5591, 6.06696, -0.5, -5.5591, 6.06696, -0.5, 5.5591, 6.06696, 0.5, 5.5591, 6.06696, -0.5, -5.5591, 6.06696, 0.5, -5.5591, -6.06696, 0.5, -5.5591, -6.06696, 0.5, -5.5591, 6.06696, 0.5, -5.5591, 6.06696, 0.5, 5.5591, 6.06696, 0.5, 5.5591, 6.06696, 0.5, -5.5591, 6.06696, -0.5, -5.5591)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_0gvb3"]
-size = Vector3(8.37476, 7.45593, 1)
 
 [node name="TestTrack" type="Node3D"]
 
@@ -129,11 +128,27 @@ shape = SubResource("ConcavePolygonShape3D_thbh6")
 [node name="Hud" parent="." node_paths=PackedStringArray("vehicle") instance=ExtResource("5_thbh6")]
 vehicle = NodePath("../Car")
 
-[node name="Checkpoint" type="Area3D" parent="."]
-collision_mask = 2
-script = ExtResource("6_woq5q")
-metadata/_custom_type_script = "uid://duqx0kmuui0tf"
+[node name="RaceManager" type="Node" parent="." node_paths=PackedStringArray("circuit", "cars")]
+script = ExtResource("7_kyfml")
+circuit = NodePath("../Circuit")
+cars = [NodePath("../Car")]
+metadata/_custom_type_script = "uid://b40o4uigxgwah"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75835, 3.74587, 0)
-shape = SubResource("BoxShape3D_0gvb3")
+[node name="Circuit" type="Node" parent="."]
+script = ExtResource("8_qvsye")
+metadata/_custom_type_script = "uid://c3hv4p6gbyski"
+
+[node name="SimpleGate" parent="." instance=ExtResource("8_kyfml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -42.1491)
+
+[node name="SimpleGate2" parent="." instance=ExtResource("8_kyfml")]
+transform = Transform3D(-0.0160214, 0, 0.999872, 0, 1, 0, -0.999872, 0, -0.0160214, -26.6314, 0, -73.935)
+
+[node name="SimpleGate3" parent="." instance=ExtResource("8_kyfml")]
+transform = Transform3D(-0.838804, 0, 0.544434, 0, 1, 0, -0.544434, 0, -0.838804, -76.8874, 0, -47.3036)
+
+[node name="SimpleGate4" parent="." instance=ExtResource("8_kyfml")]
+transform = Transform3D(-0.895525, 0, -0.44501, 0, 1, 0, 0.44501, 0, -0.895525, -87.9907, 0, 40.3539)
+
+[node name="SimpleGate5" parent="." instance=ExtResource("8_kyfml")]
+transform = Transform3D(0.20699, 0, -0.978343, 0, 1, 0, 0.978343, 0, 0.20699, -13.7741, 0, 73.6637)

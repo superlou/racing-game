@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://mm7d4g0vjj6u"]
+
+[ext_resource type="Script" uid="uid://duqx0kmuui0tf" path="res://systems/racing/checkpoint.gd" id="1_vkvrh"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vkvrh"]
+data = PackedVector3Array(-0.5, -3, 0.5, -0.5, -3, -0.5, -0.5, 3, -0.5, 0.5, -3, -0.5, -0.5, -3, -0.5, -0.5, -3, 0.5, -0.5, 3, -0.5, -0.5, -3, -0.5, 0.5, -3, -0.5, -0.5, 3, -0.5, -0.5, 3, 0.5, -0.5, -3, 0.5, -0.5, -3, 0.5, -0.5, 3, 0.5, 0.5, 3, 0.5, 0.5, 3, 0.5, -0.5, 3, 0.5, -0.5, 3, -0.5, -0.5, -3, 0.5, 0.5, -3, 0.5, 0.5, -3, -0.5, 0.5, 3, 0.5, 0.5, -3, 0.5, -0.5, -3, 0.5, 0.5, -3, -0.5, 0.5, -3, 0.5, 0.5, 3, 0.5, 0.5, -3, -0.5, 0.5, 3, -0.5, -0.5, 3, -0.5, -0.5, 3, -0.5, 0.5, 3, -0.5, 0.5, 3, 0.5, 0.5, 3, 0.5, 0.5, 3, -0.5, 0.5, -3, -0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_r5toi"]
+data = PackedVector3Array(-0.5, -3, 0.5, -0.5, -3, -0.5, -0.5, 3, -0.5, 0.5, -3, -0.5, -0.5, -3, -0.5, -0.5, -3, 0.5, -0.5, 3, -0.5, -0.5, -3, -0.5, 0.5, -3, -0.5, -0.5, 3, -0.5, -0.5, 3, 0.5, -0.5, -3, 0.5, -0.5, -3, 0.5, -0.5, 3, 0.5, 0.5, 3, 0.5, 0.5, 3, 0.5, -0.5, 3, 0.5, -0.5, 3, -0.5, -0.5, -3, 0.5, 0.5, -3, 0.5, 0.5, -3, -0.5, 0.5, 3, 0.5, 0.5, -3, 0.5, -0.5, -3, 0.5, 0.5, -3, -0.5, 0.5, -3, 0.5, 0.5, 3, 0.5, 0.5, -3, -0.5, 0.5, 3, -0.5, -0.5, 3, -0.5, -0.5, 3, -0.5, 0.5, 3, -0.5, 0.5, 3, 0.5, 0.5, 3, 0.5, 0.5, 3, -0.5, 0.5, -3, -0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vkvrh"]
+size = Vector3(15.2771, 6.39929, 1)
+
+[node name="SimpleGate" type="StaticBody3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3, 0)
+size = Vector3(1, 6, 1)
+
+[node name="CSGBakedCollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3, 0)
+shape = SubResource("ConcavePolygonShape3D_vkvrh")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 3, 0)
+size = Vector3(1, 6, 1)
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 3, 0)
+shape = SubResource("ConcavePolygonShape3D_r5toi")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 6, 0)
+size = Vector3(1, 16, 1)
+
+[node name="Checkpoint" type="Area3D" parent="."]
+script = ExtResource("1_vkvrh")
+metadata/_custom_type_script = "uid://duqx0kmuui0tf"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.69965, 0)
+shape = SubResource("BoxShape3D_vkvrh")
