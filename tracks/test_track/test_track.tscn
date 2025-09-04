@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://btc18bdu05ji0"]
+[gd_scene load_steps=19 format=3 uid="uid://btc18bdu05ji0"]
 
 [ext_resource type="PackedScene" uid="uid://40ykkxyji2i5" path="res://models/car/car.tscn" id="1_dyo7t"]
 [ext_resource type="Shader" uid="uid://bkkupvfbvk0s8" path="res://shaders/dashed_grid_shader.gdshader" id="1_uau4o"]
@@ -55,6 +55,16 @@ data = PackedVector3Array(-11.0607, -0.5, 5.5591, -11.0607, -0.5, -5.5591, -11.0
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_thbh6"]
 data = PackedVector3Array(-6.06696, -0.5, 5.5591, -6.06696, -0.5, -5.5591, -6.06696, 0.5, -5.5591, 6.06696, -0.5, -5.5591, -6.06696, -0.5, -5.5591, -6.06696, -0.5, 5.5591, -6.06696, 0.5, -5.5591, -6.06696, -0.5, -5.5591, 6.06696, -0.5, -5.5591, -6.06696, 0.5, -5.5591, -6.06696, 0.5, 5.5591, -6.06696, -0.5, 5.5591, -6.06696, -0.5, 5.5591, -6.06696, 0.5, 5.5591, 6.06696, 0.5, 5.5591, 6.06696, 0.5, 5.5591, -6.06696, 0.5, 5.5591, -6.06696, 0.5, -5.5591, -6.06696, -0.5, 5.5591, 6.06696, -0.5, 5.5591, 6.06696, -0.5, -5.5591, 6.06696, 0.5, 5.5591, 6.06696, -0.5, 5.5591, -6.06696, -0.5, 5.5591, 6.06696, -0.5, -5.5591, 6.06696, -0.5, 5.5591, 6.06696, 0.5, 5.5591, 6.06696, -0.5, -5.5591, 6.06696, 0.5, -5.5591, -6.06696, 0.5, -5.5591, -6.06696, 0.5, -5.5591, 6.06696, 0.5, -5.5591, 6.06696, 0.5, 5.5591, 6.06696, 0.5, 5.5591, 6.06696, 0.5, -5.5591, 6.06696, -0.5, -5.5591)
+
+[sub_resource type="Resource" id="Resource_kyfml"]
+script = ExtResource("8_qvsye")
+sequence = Dictionary[String, String]({
+"SimpleGate1": "",
+"SimpleGate2": "",
+"SimpleGate3": "",
+"SimpleGate4": ""
+})
+metadata/_custom_type_script = "uid://c3hv4p6gbyski"
 
 [node name="TestTrack" type="Node3D"]
 
@@ -128,27 +138,20 @@ shape = SubResource("ConcavePolygonShape3D_thbh6")
 [node name="Hud" parent="." node_paths=PackedStringArray("vehicle") instance=ExtResource("5_thbh6")]
 vehicle = NodePath("../Car")
 
-[node name="RaceManager" type="Node" parent="." node_paths=PackedStringArray("circuit", "cars")]
+[node name="RaceManager" type="Node" parent="." node_paths=PackedStringArray("cars")]
 script = ExtResource("7_kyfml")
-circuit = NodePath("../Circuit")
 cars = [NodePath("../Car")]
+circuit = SubResource("Resource_kyfml")
 metadata/_custom_type_script = "uid://b40o4uigxgwah"
 
-[node name="Circuit" type="Node" parent="."]
-script = ExtResource("8_qvsye")
-metadata/_custom_type_script = "uid://c3hv4p6gbyski"
-
-[node name="SimpleGate" parent="." instance=ExtResource("8_kyfml")]
+[node name="SimpleGate1" parent="." instance=ExtResource("8_kyfml")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -42.1491)
 
 [node name="SimpleGate2" parent="." instance=ExtResource("8_kyfml")]
 transform = Transform3D(-0.0160214, 0, 0.999872, 0, 1, 0, -0.999872, 0, -0.0160214, -26.6314, 0, -73.935)
 
 [node name="SimpleGate3" parent="." instance=ExtResource("8_kyfml")]
-transform = Transform3D(-0.838804, 0, 0.544434, 0, 1, 0, -0.544434, 0, -0.838804, -76.8874, 0, -47.3036)
+transform = Transform3D(-0.992978, 0, 0.1183, 0, 1, 0, -0.1183, 0, -0.992978, -56.0773, 0, -30.1106)
 
 [node name="SimpleGate4" parent="." instance=ExtResource("8_kyfml")]
-transform = Transform3D(-0.895525, 0, -0.44501, 0, 1, 0, 0.44501, 0, -0.895525, -87.9907, 0, 40.3539)
-
-[node name="SimpleGate5" parent="." instance=ExtResource("8_kyfml")]
-transform = Transform3D(0.20699, 0, -0.978343, 0, 1, 0, 0.978343, 0, 0.20699, -13.7741, 0, 73.6637)
+transform = Transform3D(0.869323, 0, -0.494245, 0, 1, 0, 0.494245, 0, 0.869323, -19.1307, 0, 20.1191)
