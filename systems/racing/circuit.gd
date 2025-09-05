@@ -18,5 +18,9 @@ func checkpoints_connect(from:String, to:String) -> bool:
     return false
 
 
-func is_first_checkpoint(from:String) -> bool:
-    return sequence.keys()[0] == from
+func is_first_checkpoint(name:String) -> bool:
+    return sequence.keys()[0] == name
+
+
+func is_end_of_lap(name:String) -> bool:
+    return sequence.keys()[-1] == name

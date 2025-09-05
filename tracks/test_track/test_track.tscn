@@ -135,8 +135,9 @@ shape = SubResource("ConcavePolygonShape3D_thbh6")
 
 [node name="FrameRateDisplay" parent="." instance=ExtResource("4_b3ypf")]
 
-[node name="Hud" parent="." node_paths=PackedStringArray("vehicle") instance=ExtResource("5_thbh6")]
+[node name="Hud" parent="." node_paths=PackedStringArray("vehicle", "race_manager") instance=ExtResource("5_thbh6")]
 vehicle = NodePath("../Car")
+race_manager = NodePath("../RaceManager")
 
 [node name="RaceManager" type="Node" parent="." node_paths=PackedStringArray("cars")]
 script = ExtResource("7_kyfml")
