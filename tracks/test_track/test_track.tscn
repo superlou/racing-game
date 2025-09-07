@@ -11,14 +11,17 @@
 [ext_resource type="PackedScene" uid="uid://brfbo4k6gwqd8" path="res://tracks/test_track/test_track_loop.tscn" id="10_wpb7k"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_uau4o"]
+ground_color = Color(0.60755, 0.490503, 0.35073, 1)
 
 [sub_resource type="Sky" id="Sky_a5pqg"]
 sky_material = SubResource("PhysicalSkyMaterial_uau4o")
 
 [sub_resource type="Environment" id="Environment_uau4o"]
+background_mode = 2
 sky = SubResource("Sky_a5pqg")
 ambient_light_source = 3
 glow_enabled = true
+volumetric_fog_density = 0.0068
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a5pqg"]
 
