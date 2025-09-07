@@ -6,9 +6,9 @@ extends Node3D
 
 @export var target_distance := 1.0
 
-@export var kp := 600.0
-@export var ki := 50.0
-@export var kd := 50.0
+@export var kp := 800.0
+@export var ki := 500.0
+@export var kd := 100.0
 
 var pid = PID.new()
 
@@ -18,17 +18,16 @@ func _ready():
 	pid.setpoint = 1.0
 
 
-func calculate_force(delta:float) -> Vector3:
+func calculate_global_force(delta:float) -> Vector3:
 	if raycast.is_colliding():
 		if no_collide_timer.time_left > 0.0:
 			return Vector3.ZERO
 
 		var point := raycast.get_collision_point()
 		var distance := global_position.distance_to(point)
-		var u := pid.run(distance, delta)
-		print(distance)
-		
-		return -raycast.target_position.normalized() * u
+		var u := pid.run(distance, delta)	
+		var raycast_direction = (global_basis * raycast.target_position).normalized()
+		return -raycast_direction * u
 	else:
 		no_collide_timer.start()
 	

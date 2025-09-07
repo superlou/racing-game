@@ -15,6 +15,7 @@ mass = 50.0
 physics_material_override = SubResource("PhysicsMaterial_e52qm")
 center_of_mass_mode = 1
 script = ExtResource("1_bcuj8")
+show_forces = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0206642, 0.110291)
