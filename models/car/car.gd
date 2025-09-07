@@ -69,7 +69,7 @@ func apply_turn(delta:float) -> void:
 		rotation_pid.setpoint = 0.0
 
 	var rotation_torque = rotation_pid.run(angular_velocity.y, delta)
-	apply_torque(rotation_torque * Vector3.UP)
+	apply_torque(basis * rotation_torque * Vector3.UP)
 
 
 func apply_lateral_stabilization(delta:float) -> void:

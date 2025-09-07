@@ -3,6 +3,9 @@ class_name RaceManager
 
 @export var cars:Array[Car] = []
 @export var circuit:Circuit
+@export var running := false
+@export var elapsed_time := 0.0
+@export var race_laps = 1
 
 var car_statuses:Dictionary[Car, CarStatus] = {}
 
@@ -15,6 +18,11 @@ class CarStatus:
 func _ready() -> void:
     _build_car_statuses()
     _connect_checkpoint_signals()
+
+
+func _process(delta: float) -> void:
+    if running:
+        elapsed_time += delta
 
 
 func _build_car_statuses():

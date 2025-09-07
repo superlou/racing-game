@@ -25,9 +25,20 @@ text = "MPS"
 
 [node name="CurrentLap" type="Label" parent="."]
 custom_minimum_size = Vector2(100, 0)
-offset_left = 1017.0
+offset_left = 931.0
 offset_top = 569.0
 offset_right = 1141.0
 offset_bottom = 636.0
 theme_override_font_sizes/font_size = 48
 text = "Lap -"
+horizontal_alignment = 2
+
+[node name="ElapsedTime" type="Label" parent="."]
+custom_minimum_size = Vector2(100, 0)
+offset_left = 858.0
+offset_top = 515.0
+offset_right = 1139.0
+offset_bottom = 582.0
+theme_override_font_sizes/font_size = 48
+text = "00:00.000"
+horizontal_alignment = 2

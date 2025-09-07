@@ -26,6 +26,7 @@ func calculate_force(delta:float) -> Vector3:
 		var point := raycast.get_collision_point()
 		var distance := global_position.distance_to(point)
 		var u := pid.run(distance, delta)
+		print(distance)
 		
 		return -raycast.target_position.normalized() * u
 	else:

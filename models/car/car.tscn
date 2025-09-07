@@ -7,7 +7,7 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e52qm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8thfb"]
-size = Vector3(1, 0.203125, 1.74768)
+size = Vector3(1.70288, 0.405273, 1.74768)
 
 [node name="Car" type="RigidBody3D"]
 collision_layer = 3
@@ -17,7 +17,7 @@ center_of_mass_mode = 1
 script = ExtResource("1_bcuj8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0738869, 0.110291)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0206642, 0.110291)
 shape = SubResource("BoxShape3D_8thfb")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
