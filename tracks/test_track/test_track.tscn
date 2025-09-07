@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://brfbo4k6gwqd8" path="res://tracks/test_track/test_track_loop.tscn" id="10_wpb7k"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_uau4o"]
-ground_color = Color(0.60755, 0.490503, 0.35073, 1)
+ground_color = Color(0.516267, 0.64, 0.384, 1)
 
 [sub_resource type="Sky" id="Sky_a5pqg"]
 sky_material = SubResource("PhysicalSkyMaterial_uau4o")
@@ -23,7 +23,8 @@ ambient_light_source = 3
 glow_enabled = true
 volumetric_fog_density = 0.0068
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_a5pqg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kyfml"]
+albedo_color = Color(0.396102, 0.43, 0.2451, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7t17a"]
 size = Vector3(500, 0.2, 500)
@@ -53,7 +54,7 @@ metadata/_edit_lock_ = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Ground"]
 size = Vector3(500, 0.2, 500)
-material = SubResource("ShaderMaterial_a5pqg")
+material = SubResource("StandardMaterial3D_kyfml")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
