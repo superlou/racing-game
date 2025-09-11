@@ -74,7 +74,6 @@ func apply_turn(delta:float) -> void:
 
 	var yaw_rate := (global_basis.inverse() * angular_velocity).y
 	var rotation_torque = rotation_pid.run(yaw_rate, delta)
-	print(rotation_torque)
 	apply_torque(global_basis * rotation_torque * Vector3.UP)
 
 
