@@ -17,7 +17,7 @@ var num_active_tracons := 0
 
 func _ready():
 	rotation_pid.set_coefficients(40.0, 0.0, 1.0)
-	counter_slide_pid.set_coefficients(50.0, 0.0, 20.0)
+	counter_slide_pid.set_coefficients(100.0, 10.0, 20.0)
 	counter_slide_pid.setpoint = 0.0
 
 
@@ -79,6 +79,7 @@ func apply_turn(delta:float) -> void:
 func apply_lateral_stabilization(delta:float) -> void:
 	var lateral_velocity := (global_basis.inverse() * linear_velocity).x
 	var counter_slide := counter_slide_pid.run(lateral_velocity, delta)
+	print(counter_slide)
 
 	var counter_slide_vector := Vector3.ZERO
 	if num_active_tracons >= 2:

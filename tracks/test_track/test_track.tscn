@@ -63,6 +63,7 @@ metadata/_edit_lock_ = true
 
 [node name="Car" parent="." instance=ExtResource("1_dyo7t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60367, 0)
+show_forces = false
 
 [node name="PositionLeader" type="Marker3D" parent="Car"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.119063, 0)
@@ -74,7 +75,7 @@ metadata/_custom_type_script = "uid://gdl2esxd1oi"
 [node name="InterpolatedCamera" type="Camera3D" parent="." node_paths=PackedStringArray("target", "look_at_target")]
 transform = Transform3D(1, 0, 0, 0, 0.904942, 0.425535, 0, -0.425535, 0.904942, 0, 3.60367, 4)
 script = ExtResource("3_a5pqg")
-lerp_speed = 3.0
+lerp_speed = 10.0
 target = NodePath("../Car")
 offset = Vector3(0, 2, 4)
 look_at_target = NodePath("../Car/PositionLeader")
