@@ -72,6 +72,9 @@ func apply_turn(delta:float) -> void:
 	else:
 		rotation_pid.setpoint = 0.0
 
+	# todo angular_velocity may not really be the right quantity since
+	# it is a vector pointing in the axis of rotation where magnitude is
+	# the angular velocity.
 	var yaw_rate := (global_basis.inverse() * angular_velocity).y
 	var rotation_torque = rotation_pid.run(yaw_rate, delta)
 	apply_torque(global_basis * rotation_torque * Vector3.UP)
