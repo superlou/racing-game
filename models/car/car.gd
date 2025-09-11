@@ -3,7 +3,7 @@ class_name Car
 
 signal speed_changed(speed:float)
 
-@export var thrust := 400.0
+@export var thrust := 500.0
 @export var turn_rate := 3.0
 @export var show_forces := false
 @export var drag_scale := 1.0
@@ -16,8 +16,8 @@ var num_active_tracons := 0
 
 
 func _ready():
-	rotation_pid.set_coefficients(40.0, 0.0, 1.0)
-	counter_slide_pid.set_coefficients(100.0, 10.0, 20.0)
+	rotation_pid.set_coefficients(100.0, 10.0, 1.0)
+	counter_slide_pid.set_coefficients(200.0, 10.0, 40.0)
 	counter_slide_pid.setpoint = 0.0
 
 
@@ -72,14 +72,15 @@ func apply_turn(delta:float) -> void:
 	else:
 		rotation_pid.setpoint = 0.0
 
-	var rotation_torque = rotation_pid.run(angular_velocity.y, delta)
+	var yaw_rate := (global_basis.inverse() * angular_velocity).y
+	var rotation_torque = rotation_pid.run(yaw_rate, delta)
+	print(rotation_torque)
 	apply_torque(global_basis * rotation_torque * Vector3.UP)
 
 
 func apply_lateral_stabilization(delta:float) -> void:
 	var lateral_velocity := (global_basis.inverse() * linear_velocity).x
 	var counter_slide := counter_slide_pid.run(lateral_velocity, delta)
-	print(counter_slide)
 
 	var counter_slide_vector := Vector3.ZERO
 	if num_active_tracons >= 2:
@@ -99,8 +100,8 @@ func apply_lateral_stabilization(delta:float) -> void:
 func _physics_process(delta:float) -> void:
 	apply_tracons(delta)
 	apply_engine()
-	apply_drag(delta)
 	apply_turn(delta)
+	apply_drag(delta)
 	apply_lateral_stabilization(delta)
 
 
