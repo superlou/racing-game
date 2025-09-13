@@ -1,0 +1,106 @@
+[gd_scene load_steps=10 format=3 uid="uid://chrjsbl8by2fm"]
+
+[ext_resource type="Script" uid="uid://b40o4uigxgwah" path="res://systems/racing/race_manager.gd" id="1_fcqpf"]
+[ext_resource type="Script" uid="uid://c3hv4p6gbyski" path="res://systems/racing/circuit.gd" id="2_2ub4j"]
+[ext_resource type="PackedScene" uid="uid://f14avd7gafev" path="res://hud/frame_rate_display.tscn" id="3_xtdty"]
+[ext_resource type="PackedScene" uid="uid://btc18bdu05ji0" path="res://tracks/test_track/test_track.tscn" id="4_fws3a"]
+[ext_resource type="PackedScene" uid="uid://40ykkxyji2i5" path="res://models/car/car.tscn" id="5_tpamu"]
+[ext_resource type="Script" uid="uid://gdl2esxd1oi" path="res://systems/cameras/position_leader.gd" id="6_stwo3"]
+[ext_resource type="Script" uid="uid://d2oayky7br4dx" path="res://systems/cameras/interpolated_camera.gd" id="7_7o6gp"]
+[ext_resource type="PackedScene" uid="uid://cjklp2selxgut" path="res://hud/hud.tscn" id="8_pdnc3"]
+
+[sub_resource type="Resource" id="Resource_8sms4"]
+script = ExtResource("2_2ub4j")
+sequence = Dictionary[String, String]({})
+metadata/_custom_type_script = "uid://c3hv4p6gbyski"
+
+[node name="Game" type="Node"]
+
+[node name="RaceManager" type="Node" parent="." node_paths=PackedStringArray("cars")]
+script = ExtResource("1_fcqpf")
+cars = [NodePath("../Car1")]
+circuit = SubResource("Resource_8sms4")
+running = true
+race_laps = 3
+metadata/_custom_type_script = "uid://b40o4uigxgwah"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="VBoxContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1152, 322)
+render_target_update_mode = 4
+
+[node name="Hud" parent="VBoxContainer/SubViewportContainer/SubViewport" node_paths=PackedStringArray("vehicle", "race_manager") instance=ExtResource("8_pdnc3")]
+vehicle = NodePath("../../../../Car1")
+race_manager = NodePath("../../../../RaceManager")
+
+[node name="InterpolatedCamera" type="Camera3D" parent="VBoxContainer/SubViewportContainer/SubViewport" node_paths=PackedStringArray("target", "look_at_target")]
+transform = Transform3D(1, 0, 0, 0, 0.904942, 0.425535, 0, -0.425535, 0.904942, -0.00741863, 3.61805, 3.99469)
+current = true
+script = ExtResource("7_7o6gp")
+lerp_speed = 10.0
+target = NodePath("../../../../Car1")
+offset = Vector3(0, 2, 4)
+look_at_target = NodePath("../../../../Car1/PositionLeader")
+metadata/_custom_type_script = "uid://d2oayky7br4dx"
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="VBoxContainer/SubViewportContainer2"]
+handle_input_locally = false
+size = Vector2i(1152, 322)
+render_target_update_mode = 4
+
+[node name="InterpolatedCamera" type="Camera3D" parent="VBoxContainer/SubViewportContainer2/SubViewport" node_paths=PackedStringArray("target", "look_at_target")]
+transform = Transform3D(1, 0, 0, 0, 0.904942, 0.425535, 0, -0.425535, 0.904942, 4.09443, 3.60367, 4.00698)
+current = true
+script = ExtResource("7_7o6gp")
+lerp_speed = 10.0
+target = NodePath("../../../../Car2")
+offset = Vector3(0, 2, 4)
+look_at_target = NodePath("../../../../Car2/PositionLeader")
+metadata/_custom_type_script = "uid://d2oayky7br4dx"
+
+[node name="FrameRateDisplay" parent="." instance=ExtResource("3_xtdty")]
+
+[node name="TestTrack" parent="." instance=ExtResource("4_fws3a")]
+
+[node name="Car1" parent="." instance=ExtResource("5_tpamu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00741863, 1.61805, -0.00531101)
+show_forces = false
+input_prefix = "p1_"
+
+[node name="PositionLeader" type="Marker3D" parent="Car1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.119063, 0)
+script = ExtResource("6_stwo3")
+gain = 0.0
+offset = Vector3(0, 2, 0)
+metadata/_custom_type_script = "uid://gdl2esxd1oi"
+
+[node name="Car2" parent="." instance=ExtResource("5_tpamu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09443, 1.60367, 0.00697541)
+show_forces = false
+input_prefix = "p2_"
+
+[node name="PositionLeader" type="Marker3D" parent="Car2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.119063, 0)
+script = ExtResource("6_stwo3")
+gain = 0.0
+offset = Vector3(0, 2, 0)
+metadata/_custom_type_script = "uid://gdl2esxd1oi"

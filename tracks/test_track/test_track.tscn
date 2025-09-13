@@ -1,13 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://btc18bdu05ji0"]
+[gd_scene load_steps=8 format=3 uid="uid://btc18bdu05ji0"]
 
-[ext_resource type="PackedScene" uid="uid://40ykkxyji2i5" path="res://models/car/car.tscn" id="1_dyo7t"]
-[ext_resource type="Script" uid="uid://d2oayky7br4dx" path="res://systems/cameras/interpolated_camera.gd" id="3_a5pqg"]
-[ext_resource type="PackedScene" uid="uid://f14avd7gafev" path="res://hud/frame_rate_display.tscn" id="4_b3ypf"]
-[ext_resource type="PackedScene" uid="uid://cjklp2selxgut" path="res://hud/hud.tscn" id="5_thbh6"]
-[ext_resource type="Script" uid="uid://gdl2esxd1oi" path="res://systems/cameras/position_leader.gd" id="7_0gvb3"]
-[ext_resource type="Script" uid="uid://b40o4uigxgwah" path="res://systems/racing/race_manager.gd" id="7_kyfml"]
 [ext_resource type="PackedScene" uid="uid://mm7d4g0vjj6u" path="res://models/gates/SimpleGate.tscn" id="8_kyfml"]
-[ext_resource type="Script" uid="uid://c3hv4p6gbyski" path="res://systems/racing/circuit.gd" id="8_qvsye"]
 [ext_resource type="PackedScene" uid="uid://brfbo4k6gwqd8" path="res://tracks/test_track/test_track_loop.tscn" id="10_wpb7k"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_uau4o"]
@@ -28,16 +21,6 @@ albedo_color = Color(0.396102, 0.43, 0.2451, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7t17a"]
 size = Vector3(500, 0.2, 500)
-
-[sub_resource type="Resource" id="Resource_kyfml"]
-script = ExtResource("8_qvsye")
-sequence = Dictionary[String, String]({
-"SimpleGate1": "",
-"SimpleGate2": "",
-"SimpleGate3": "",
-"SimpleGate4": ""
-})
-metadata/_custom_type_script = "uid://c3hv4p6gbyski"
 
 [node name="TestTrack" type="Node3D"]
 
@@ -60,40 +43,6 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("BoxShape3D_7t17a")
 metadata/_edit_lock_ = true
-
-[node name="Car" parent="." instance=ExtResource("1_dyo7t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60367, 0)
-show_forces = false
-
-[node name="PositionLeader" type="Marker3D" parent="Car"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.119063, 0)
-script = ExtResource("7_0gvb3")
-gain = 0.0
-offset = Vector3(0, 2, 0)
-metadata/_custom_type_script = "uid://gdl2esxd1oi"
-
-[node name="InterpolatedCamera" type="Camera3D" parent="." node_paths=PackedStringArray("target", "look_at_target")]
-transform = Transform3D(1, 0, 0, 0, 0.904942, 0.425535, 0, -0.425535, 0.904942, 0, 3.60367, 4)
-script = ExtResource("3_a5pqg")
-lerp_speed = 10.0
-target = NodePath("../Car")
-offset = Vector3(0, 2, 4)
-look_at_target = NodePath("../Car/PositionLeader")
-metadata/_custom_type_script = "uid://d2oayky7br4dx"
-
-[node name="FrameRateDisplay" parent="." instance=ExtResource("4_b3ypf")]
-
-[node name="Hud" parent="." node_paths=PackedStringArray("vehicle", "race_manager") instance=ExtResource("5_thbh6")]
-vehicle = NodePath("../Car")
-race_manager = NodePath("../RaceManager")
-
-[node name="RaceManager" type="Node" parent="." node_paths=PackedStringArray("cars")]
-script = ExtResource("7_kyfml")
-cars = [NodePath("../Car")]
-circuit = SubResource("Resource_kyfml")
-running = true
-race_laps = 3
-metadata/_custom_type_script = "uid://b40o4uigxgwah"
 
 [node name="SimpleGate1" parent="." instance=ExtResource("8_kyfml")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.139828, 0, -30.3714)

@@ -7,6 +7,7 @@ signal speed_changed(speed:float)
 @export var turn_rate := 3.0
 @export var show_forces := false
 @export var drag_scale := 1.0
+@export var input_prefix := ""
 
 var rotation_pid := PID.new()
 var counter_slide_pid := PID.new()
@@ -43,9 +44,9 @@ func apply_tracons(delta:float) -> void:
 func apply_engine() -> void:
 	var engine_dir = ($EngineRay.global_basis * $EngineRay.target_position).normalized()
 
-	if Input.is_action_pressed("thrust_forward"):
+	if Input.is_action_pressed(input_prefix + "thrust_forward"):
 		apply_force(-thrust * engine_dir)
-	elif Input.is_action_pressed("thrust_reverse"):
+	elif Input.is_action_pressed(input_prefix + "thrust_reverse"):
 		apply_force(thrust * engine_dir)
 
 
@@ -65,9 +66,9 @@ func apply_drag(delta:float) -> void:
 
 
 func apply_turn(delta:float) -> void:
-	if Input.is_action_pressed("turn_left"):
+	if Input.is_action_pressed(input_prefix + "turn_left"):
 		rotation_pid.setpoint = turn_rate
-	elif Input.is_action_pressed("turn_right"):
+	elif Input.is_action_pressed(input_prefix + "turn_right"):
 		rotation_pid.setpoint = -turn_rate
 	else:
 		rotation_pid.setpoint = 0.0
