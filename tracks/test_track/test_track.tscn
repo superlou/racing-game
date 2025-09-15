@@ -1,20 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://btc18bdu05ji0"]
+[gd_scene load_steps=7 format=3 uid="uid://btc18bdu05ji0"]
 
+[ext_resource type="Script" uid="uid://duqx0kmuui0tf" path="res://systems/racing/checkpoint.gd" id="2_a5pqg"]
 [ext_resource type="PackedScene" uid="uid://mm7d4g0vjj6u" path="res://models/gates/SimpleGate.tscn" id="8_kyfml"]
 [ext_resource type="PackedScene" uid="uid://brfbo4k6gwqd8" path="res://tracks/test_track/test_track_loop.tscn" id="10_wpb7k"]
-
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_uau4o"]
-ground_color = Color(0.516267, 0.64, 0.384, 1)
-
-[sub_resource type="Sky" id="Sky_a5pqg"]
-sky_material = SubResource("PhysicalSkyMaterial_uau4o")
-
-[sub_resource type="Environment" id="Environment_uau4o"]
-background_mode = 2
-sky = SubResource("Sky_a5pqg")
-ambient_light_source = 3
-glow_enabled = true
-volumetric_fog_density = 0.0068
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kyfml"]
 albedo_color = Color(0.396102, 0.43, 0.2451, 1)
@@ -22,14 +10,10 @@ albedo_color = Color(0.396102, 0.43, 0.2451, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_7t17a"]
 size = Vector3(500, 0.2, 500)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_b3ypf"]
+size = Vector3(15.2771, 6.39929, 1)
+
 [node name="TestTrack" type="Node3D"]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_uau4o")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 0.0890334, 0.996029, 0, -0.996029, 0.0890334, -6.03195, 4.21754, 0)
-shadow_enabled = true
 
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
@@ -47,14 +31,46 @@ metadata/_edit_lock_ = true
 [node name="SimpleGate1" parent="." instance=ExtResource("8_kyfml")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.139828, 0, -30.3714)
 
+[node name="Checkpoint1" type="Area3D" parent="SimpleGate1" groups=["checkpoint"]]
+script = ExtResource("2_a5pqg")
+metadata/_custom_type_script = "uid://duqx0kmuui0tf"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SimpleGate1/Checkpoint1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.69965, 0)
+shape = SubResource("BoxShape3D_b3ypf")
+
 [node name="SimpleGate2" parent="." instance=ExtResource("8_kyfml")]
 transform = Transform3D(0.298391, 0, 0.954444, 0, 1, 0, -0.954444, 0, 0.298391, -29.8174, 0, -57.3919)
+
+[node name="Checkpoint2" type="Area3D" parent="SimpleGate2" groups=["checkpoint"]]
+script = ExtResource("2_a5pqg")
+metadata/_custom_type_script = "uid://duqx0kmuui0tf"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SimpleGate2/Checkpoint2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.69965, 0)
+shape = SubResource("BoxShape3D_b3ypf")
 
 [node name="SimpleGate3" parent="." instance=ExtResource("8_kyfml")]
 transform = Transform3D(-1, 0, 1.74567e-05, 0, 1, 0, -1.74567e-05, 0, -1, 64.5795, 3.8147e-06, -60.6828)
 
+[node name="Checkpoint3" type="Area3D" parent="SimpleGate3" groups=["checkpoint"]]
+script = ExtResource("2_a5pqg")
+metadata/_custom_type_script = "uid://duqx0kmuui0tf"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SimpleGate3/Checkpoint3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.69965, 0)
+shape = SubResource("BoxShape3D_b3ypf")
+
 [node name="SimpleGate4" parent="." instance=ExtResource("8_kyfml")]
 transform = Transform3D(0.997684, 0, 0.0680155, 0, 1, 0, -0.0680155, 0, 0.997684, 0.533684, 0, 10.5511)
+
+[node name="Checkpoint4" type="Area3D" parent="SimpleGate4" groups=["checkpoint"]]
+script = ExtResource("2_a5pqg")
+metadata/_custom_type_script = "uid://duqx0kmuui0tf"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SimpleGate4/Checkpoint4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.69965, 0)
+shape = SubResource("BoxShape3D_b3ypf")
 
 [node name="test_track" parent="." instance=ExtResource("10_wpb7k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20038, 0)

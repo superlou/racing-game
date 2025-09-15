@@ -23,6 +23,10 @@ settings/addon_root_folder="res://addons/debug_draw_3d"
 
 import/blender/enabled=false
 
+[global_group]
+
+checkpoint=""
+
 [input]
 
 p1_thrust_forward={

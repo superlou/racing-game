@@ -2,43 +2,64 @@
 
 [ext_resource type="Script" uid="uid://dacgmpltf21sh" path="res://hud/hud.gd" id="1_6ca3a"]
 
-[node name="Hud" type="Node2D"]
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_6ca3a")
-
-[node name="Speed" type="Label" parent="."]
-custom_minimum_size = Vector2(100, 0)
-offset_left = 6.0
-offset_top = 572.0
-offset_right = 106.0
-offset_bottom = 639.0
-theme_override_font_sizes/font_size = 48
-text = "88"
-horizontal_alignment = 2
-
-[node name="Speed2" type="Label" parent="."]
-offset_left = 108.0
-offset_top = 602.0
-offset_right = 164.0
-offset_bottom = 636.0
-theme_override_font_sizes/font_size = 20
-text = "MPS"
 
 [node name="CurrentLap" type="Label" parent="."]
 custom_minimum_size = Vector2(100, 0)
-offset_left = 931.0
-offset_top = 569.0
-offset_right = 1141.0
-offset_bottom = 636.0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -210.0
+offset_top = -67.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_font_sizes/font_size = 48
 text = "Lap -"
 horizontal_alignment = 2
 
 [node name="ElapsedTime" type="Label" parent="."]
 custom_minimum_size = Vector2(100, 0)
-offset_left = 858.0
-offset_top = 515.0
-offset_right = 1139.0
-offset_bottom = 582.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -281.0
+offset_bottom = 67.0
+grow_horizontal = 0
 theme_override_font_sizes/font_size = 48
-text = "00:00.000"
+text = "00:00.00"
 horizontal_alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -67.0
+offset_right = 146.0
+grow_vertical = 0
+
+[node name="Speed" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "88"
+horizontal_alignment = 2
+
+[node name="SpeedUnits" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "MPS"

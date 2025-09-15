@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://chrjsbl8by2fm"]
+[gd_scene load_steps=13 format=3 uid="uid://chrjsbl8by2fm"]
 
 [ext_resource type="Script" uid="uid://b40o4uigxgwah" path="res://systems/racing/race_manager.gd" id="1_fcqpf"]
 [ext_resource type="Script" uid="uid://c3hv4p6gbyski" path="res://systems/racing/circuit.gd" id="2_2ub4j"]
@@ -11,18 +11,43 @@
 
 [sub_resource type="Resource" id="Resource_8sms4"]
 script = ExtResource("2_2ub4j")
-sequence = Dictionary[String, String]({})
+sequence = Dictionary[String, String]({
+"Checkpoint1": "",
+"Checkpoint2": "",
+"Checkpoint3": "",
+"Checkpoint4": ""
+})
 metadata/_custom_type_script = "uid://c3hv4p6gbyski"
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_fcqpf"]
+ground_color = Color(0.516267, 0.64, 0.384, 1)
+
+[sub_resource type="Sky" id="Sky_a5pqg"]
+sky_material = SubResource("PhysicalSkyMaterial_fcqpf")
+
+[sub_resource type="Environment" id="Environment_2ub4j"]
+background_mode = 2
+sky = SubResource("Sky_a5pqg")
+ambient_light_source = 3
+glow_enabled = true
+volumetric_fog_density = 0.0068
 
 [node name="Game" type="Node"]
 
 [node name="RaceManager" type="Node" parent="." node_paths=PackedStringArray("cars")]
 script = ExtResource("1_fcqpf")
-cars = [NodePath("../Car1")]
+cars = [NodePath("../Car1"), NodePath("../Car2")]
 circuit = SubResource("Resource_8sms4")
 running = true
 race_laps = 3
 metadata/_custom_type_script = "uid://b40o4uigxgwah"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2ub4j")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.0890334, 0.996029, 0, -0.996029, 0.0890334, -6.03195, 4.21754, 0)
+shadow_enabled = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 15
@@ -32,6 +57,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/separation = 0
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -40,12 +66,8 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="VBoxContainer/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(1152, 322)
+size = Vector2i(1152, 324)
 render_target_update_mode = 4
-
-[node name="Hud" parent="VBoxContainer/SubViewportContainer/SubViewport" node_paths=PackedStringArray("vehicle", "race_manager") instance=ExtResource("8_pdnc3")]
-vehicle = NodePath("../../../../Car1")
-race_manager = NodePath("../../../../RaceManager")
 
 [node name="InterpolatedCamera" type="Camera3D" parent="VBoxContainer/SubViewportContainer/SubViewport" node_paths=PackedStringArray("target", "look_at_target")]
 transform = Transform3D(1, 0, 0, 0, 0.904942, 0.425535, 0, -0.425535, 0.904942, -0.00741863, 3.61805, 3.99469)
@@ -57,6 +79,11 @@ offset = Vector3(0, 2, 4)
 look_at_target = NodePath("../../../../Car1/PositionLeader")
 metadata/_custom_type_script = "uid://d2oayky7br4dx"
 
+[node name="Hud" parent="VBoxContainer/SubViewportContainer" node_paths=PackedStringArray("vehicle", "race_manager") instance=ExtResource("8_pdnc3")]
+layout_mode = 2
+vehicle = NodePath("../../../Car1")
+race_manager = NodePath("../../../RaceManager")
+
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -64,7 +91,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="VBoxContainer/SubViewportContainer2"]
 handle_input_locally = false
-size = Vector2i(1152, 322)
+size = Vector2i(1152, 324)
 render_target_update_mode = 4
 
 [node name="InterpolatedCamera" type="Camera3D" parent="VBoxContainer/SubViewportContainer2/SubViewport" node_paths=PackedStringArray("target", "look_at_target")]
@@ -76,6 +103,11 @@ target = NodePath("../../../../Car2")
 offset = Vector3(0, 2, 4)
 look_at_target = NodePath("../../../../Car2/PositionLeader")
 metadata/_custom_type_script = "uid://d2oayky7br4dx"
+
+[node name="Hud" parent="VBoxContainer/SubViewportContainer2" node_paths=PackedStringArray("vehicle", "race_manager") instance=ExtResource("8_pdnc3")]
+layout_mode = 2
+vehicle = NodePath("../../../Car2")
+race_manager = NodePath("../../../RaceManager")
 
 [node name="FrameRateDisplay" parent="." instance=ExtResource("3_xtdty")]
 

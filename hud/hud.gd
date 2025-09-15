@@ -1,8 +1,8 @@
-extends Node2D
+extends Control
 
 @export var vehicle:Car
 @export var race_manager:RaceManager
-@onready var speed_label:Label = $Speed
+@onready var speed_label:Label = %Speed
 @onready var current_lap:Label = $CurrentLap
 @onready var elapsed_time:Label = $ElapsedTime
 
