@@ -10,16 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://cjklp2selxgut" path="res://hud/hud.tscn" id="8_pdnc3"]
 [ext_resource type="Script" uid="uid://6as47vdwymy3" path="res://systems/player_input.gd" id="9_2ub4j"]
 
-[sub_resource type="Resource" id="Resource_8sms4"]
-script = ExtResource("2_2ub4j")
-sequence = Dictionary[String, String]({
-"Checkpoint1": "",
-"Checkpoint2": "",
-"Checkpoint3": "",
-"Checkpoint4": ""
-})
-metadata/_custom_type_script = "uid://c3hv4p6gbyski"
-
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_fcqpf"]
 ground_color = Color(0.516267, 0.64, 0.384, 1)
 
@@ -33,15 +23,17 @@ ambient_light_source = 3
 glow_enabled = true
 volumetric_fog_density = 0.0068
 
-[node name="Game" type="Node"]
+[sub_resource type="Resource" id="Resource_8sms4"]
+script = ExtResource("2_2ub4j")
+sequence = Dictionary[String, String]({
+"Checkpoint1": "",
+"Checkpoint2": "",
+"Checkpoint3": "",
+"Checkpoint4": ""
+})
+metadata/_custom_type_script = "uid://c3hv4p6gbyski"
 
-[node name="RaceManager" type="Node" parent="." node_paths=PackedStringArray("cars")]
-script = ExtResource("1_fcqpf")
-cars = [NodePath("../Car1"), NodePath("../Car2")]
-circuit = SubResource("Resource_8sms4")
-state = 1
-race_laps = 3
-metadata/_custom_type_script = "uid://b40o4uigxgwah"
+[node name="Game" type="Node"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2ub4j")
@@ -111,6 +103,13 @@ vehicle = NodePath("../../../Car2")
 race_manager = NodePath("../../../RaceManager")
 
 [node name="FrameRateDisplay" parent="." instance=ExtResource("3_xtdty")]
+
+[node name="RaceManager" type="Node" parent="." node_paths=PackedStringArray("cars")]
+script = ExtResource("1_fcqpf")
+cars = [NodePath("../Car1"), NodePath("../Car2")]
+circuit = SubResource("Resource_8sms4")
+state = 1
+metadata/_custom_type_script = "uid://b40o4uigxgwah"
 
 [node name="TestTrack" parent="." instance=ExtResource("4_fws3a")]
 

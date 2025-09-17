@@ -21,6 +21,9 @@ var car_statuses:Dictionary[Car, CarStatus] = {}
 class CarStatus:
 	var last_checkpoint:Checkpoint = null
 	var lap := 1
+	var is_finished := false
+	var finish_time := 0.0
+	var finish_place = 0
 
 
 func _ready() -> void:
@@ -67,7 +70,12 @@ func _on_car_entered(car:Car, checkpoint:Checkpoint) -> void:
 			print(this_checkpoint_name)
 		
 		if circuit.is_end_of_lap(this_checkpoint_name):
-			status.lap += 1
+			if status.lap < race_laps:
+				status.lap += 1
+			else:
+				status.is_finished = true
+				status.finish_time = elapsed_time
+				# todo Determine the finished place based on car_statues that aren't finished
 	else:
 		if circuit.is_first_checkpoint(this_checkpoint_name):
 			status.last_checkpoint = checkpoint
