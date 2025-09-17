@@ -1,9 +1,17 @@
 extends Node
 class_name RaceManager
 
+enum RaceState {
+	NEW,
+	COUNTDOWN,
+	RUNNING,
+	FINISHED
+}
+
 @export var cars:Array[Car] = []
 @export var circuit:Circuit
-@export var running := false
+@export var state := RaceState.NEW
+@export var countdown := 3.0
 @export var elapsed_time := 0.0
 @export var race_laps = 1
 
@@ -21,8 +29,15 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if running:
+	if state == RaceState.RUNNING:
 		elapsed_time += delta
+
+	if state == RaceState.COUNTDOWN:
+		countdown -= delta
+
+		if countdown <= 0.0:
+			countdown = 0.0
+			state = RaceState.RUNNING
 
 
 func _build_car_statuses():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://chrjsbl8by2fm"]
+[gd_scene load_steps=14 format=3 uid="uid://chrjsbl8by2fm"]
 
 [ext_resource type="Script" uid="uid://b40o4uigxgwah" path="res://systems/racing/race_manager.gd" id="1_fcqpf"]
 [ext_resource type="Script" uid="uid://c3hv4p6gbyski" path="res://systems/racing/circuit.gd" id="2_2ub4j"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://gdl2esxd1oi" path="res://systems/cameras/position_leader.gd" id="6_stwo3"]
 [ext_resource type="Script" uid="uid://d2oayky7br4dx" path="res://systems/cameras/interpolated_camera.gd" id="7_7o6gp"]
 [ext_resource type="PackedScene" uid="uid://cjklp2selxgut" path="res://hud/hud.tscn" id="8_pdnc3"]
+[ext_resource type="Script" uid="uid://6as47vdwymy3" path="res://systems/player_input.gd" id="9_2ub4j"]
 
 [sub_resource type="Resource" id="Resource_8sms4"]
 script = ExtResource("2_2ub4j")
@@ -38,7 +39,7 @@ volumetric_fog_density = 0.0068
 script = ExtResource("1_fcqpf")
 cars = [NodePath("../Car1"), NodePath("../Car2")]
 circuit = SubResource("Resource_8sms4")
-running = true
+state = 1
 race_laps = 3
 metadata/_custom_type_script = "uid://b40o4uigxgwah"
 
@@ -70,7 +71,7 @@ size = Vector2i(1152, 324)
 render_target_update_mode = 4
 
 [node name="InterpolatedCamera" type="Camera3D" parent="VBoxContainer/SubViewportContainer/SubViewport" node_paths=PackedStringArray("target", "look_at_target")]
-transform = Transform3D(1, 0, 0, 0, 0.904942, 0.425535, 0, -0.425535, 0.904942, -0.00741863, 3.61805, 3.99469)
+transform = Transform3D(1, 0, 0, 0, 0.90494204, 0.4255348, 0, -0.4255348, 0.90494204, -0.00741863, 3.61805, 3.994689)
 current = true
 script = ExtResource("7_7o6gp")
 lerp_speed = 10.0
@@ -95,7 +96,7 @@ size = Vector2i(1152, 324)
 render_target_update_mode = 4
 
 [node name="InterpolatedCamera" type="Camera3D" parent="VBoxContainer/SubViewportContainer2/SubViewport" node_paths=PackedStringArray("target", "look_at_target")]
-transform = Transform3D(1, 0, 0, 0, 0.904942, 0.425535, 0, -0.425535, 0.904942, 4.09443, 3.60367, 4.00698)
+transform = Transform3D(1, 0, 0, 0, 0.90494204, 0.42553484, 0, -0.42553484, 0.90494204, 4.09443, 3.6036701, 4.006975)
 current = true
 script = ExtResource("7_7o6gp")
 lerp_speed = 10.0
@@ -116,7 +117,6 @@ race_manager = NodePath("../../../RaceManager")
 [node name="Car1" parent="." instance=ExtResource("5_tpamu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00741863, 1.61805, -0.00531101)
 show_forces = false
-input_prefix = "p1_"
 
 [node name="PositionLeader" type="Marker3D" parent="Car1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.119063, 0)
@@ -125,10 +125,15 @@ gain = 0.0
 offset = Vector3(0, 2, 0)
 metadata/_custom_type_script = "uid://gdl2esxd1oi"
 
+[node name="PlayerInput" type="Node" parent="Car1" node_paths=PackedStringArray("race_manager")]
+script = ExtResource("9_2ub4j")
+input_prefix = "p1_"
+race_manager = NodePath("../../RaceManager")
+metadata/_custom_type_script = "uid://6as47vdwymy3"
+
 [node name="Car2" parent="." instance=ExtResource("5_tpamu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09443, 1.60367, 0.00697541)
 show_forces = false
-input_prefix = "p2_"
 
 [node name="PositionLeader" type="Marker3D" parent="Car2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.119063, 0)
@@ -136,3 +141,9 @@ script = ExtResource("6_stwo3")
 gain = 0.0
 offset = Vector3(0, 2, 0)
 metadata/_custom_type_script = "uid://gdl2esxd1oi"
+
+[node name="PlayerInput" type="Node" parent="Car2" node_paths=PackedStringArray("race_manager")]
+script = ExtResource("9_2ub4j")
+input_prefix = "p2_"
+race_manager = NodePath("../../RaceManager")
+metadata/_custom_type_script = "uid://6as47vdwymy3"

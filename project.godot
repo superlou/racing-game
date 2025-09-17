@@ -12,7 +12,7 @@ config_version=5
 
 config/name="racing-game"
 run/main_scene="uid://chrjsbl8by2fm"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [debug_draw_3d]
