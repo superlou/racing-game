@@ -75,7 +75,7 @@ func _on_car_entered(car:Car, checkpoint:Checkpoint) -> void:
 			else:
 				status.is_finished = true
 				status.finish_time = elapsed_time
-				# todo Determine the finished place based on car_statues that aren't finished
+				status.finish_place = len(car_statuses.values().filter(func(car_status): return car_status.is_finished))
 	else:
 		if circuit.is_first_checkpoint(this_checkpoint_name):
 			status.last_checkpoint = checkpoint

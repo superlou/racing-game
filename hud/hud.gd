@@ -23,6 +23,7 @@ func _process(_delta: float) -> void:
 
 	if car_status.is_finished:
 		finished.show()
+		finished.text = "Finished\n%s" % Humanize.place(car_status.finish_place)
 		elapsed_time.text = Humanize.elapsed_time_hh_ss(car_status.finish_time)
 	else:
 		finished.hide()
