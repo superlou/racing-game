@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://40ykkxyji2i5"]
+[gd_scene load_steps=7 format=3 uid="uid://40ykkxyji2i5"]
 
 [ext_resource type="Script" uid="uid://c6k4ntrhq2ip4" path="res://models/car/car.gd" id="1_bcuj8"]
 [ext_resource type="PackedScene" uid="uid://be1o6fgbedwev" path="res://models/car/tracon.tscn" id="2_e52qm"]
 [ext_resource type="PackedScene" uid="uid://x7yofvc87nxo" path="res://systems/sparker/sparker.tscn" id="3_4ro1q"]
+[ext_resource type="PackedScene" uid="uid://boj1d0uq1omug" path="res://models/car/car.glb" id="4_o6pw8"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e52qm"]
 
@@ -21,59 +22,19 @@ show_forces = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0206642, 0.110291)
 shape = SubResource("BoxShape3D_8thfb")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0733009, 0)
-size = Vector3(1, 0.2, 1)
-
-[node name="CSGBox3D8" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0733009, 0.679199)
-size = Vector3(0.834961, 0.2, 0.354492)
-
-[node name="CSGBox3D9" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0733009, 0.911045)
-size = Vector3(1.05371, 0.2, 0.116699)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.442567, 0.712971)
-size = Vector3(0.634766, 0.538702, 0.194214)
-
-[node name="CSGBox3D10" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.268585, 0.403755)
-size = Vector3(0.588135, 0.190738, 0.393494)
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.376862, 0.245789, 0.220853)
-size = Vector3(0.113708, 0.145148, 1.40195)
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3757, 0.245789, 0.220853)
-size = Vector3(0.113708, 0.145148, 1.40195)
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.547636, -0.836717, 0, 0.836717, 0.547636, 0, 0.335843, -0.51928)
-size = Vector3(0.441406, 0.764713, 0.284119)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.999075, 0.0429917, 0, -0.0429917, 0.999075, 0, 0.812108, 0.668203)
-size = Vector3(0.31665, 0.194952, 0.115601)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0733009, -0.636735)
-size = Vector3(0.481445, 0.2, 0.276367)
-
 [node name="Tracons" type="Node3D" parent="."]
 
 [node name="Tracon1" parent="Tracons" instance=ExtResource("2_e52qm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.642436, 0.0639072, 0.644953)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.722415, 0.0639072, 0.68316436)
 
 [node name="Tracon2" parent="Tracons" instance=ExtResource("2_e52qm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.647927, 0.0639072, 0.644953)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7359037, 0.0639072, 0.68316436)
 
 [node name="Tracon3" parent="Tracons" instance=ExtResource("2_e52qm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.647927, 0.0639072, -0.645409)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7359037, 0.0639072, -0.4190793)
 
 [node name="Tracon4" parent="Tracons" instance=ExtResource("2_e52qm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.636945, 0.0639072, -0.634427)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.71692395, 0.0639072, -0.40809733)
 
 [node name="EngineRay" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.107893, 0.581683)
@@ -83,34 +44,41 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.784653)
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.642382, 0.0225171, 0.644474)
+visible = false
 radius = 0.2
 
 [node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.642, 0.0228764, 0.644)
+visible = false
 radius = 0.2
 
 [node name="CSGSphere3D3" type="CSGSphere3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.642382, 0.0225171, -0.642799)
+visible = false
 radius = 0.2
 
 [node name="CSGSphere3D4" type="CSGSphere3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.642, 0.0228764, -0.643272)
+visible = false
 radius = 0.2
 
 [node name="Sparker" parent="." instance=ExtResource("3_4ro1q")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.642, -0.160371, -0.643272)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.642, -0.160371, -0.4140033)
 
 [node name="Sparker2" parent="." instance=ExtResource("3_4ro1q")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.642, -0.160371, 0.64396)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.642, -0.160371, 0.68217146)
 
 [node name="Sparker3" parent="." instance=ExtResource("3_4ro1q")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.645232, -0.160371, -0.643272)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.645232, -0.160371, -0.4140033)
 
 [node name="Sparker5" parent="." instance=ExtResource("3_4ro1q")]
-transform = Transform3D(-4.37114e-08, 0, -1, -0.610104, 0.792322, 2.66685e-08, 0.792322, 0.610104, -3.46335e-08, 0.642, -0.112123, -0.773943)
+transform = Transform3D(-4.37114e-08, 0, -1, -0.610104, 0.792322, 2.66685e-08, 0.792322, 0.610104, -3.46335e-08, 0.642, -0.112123, -0.51401144)
 
 [node name="Sparker6" parent="." instance=ExtResource("3_4ro1q")]
-transform = Transform3D(-4.37114e-08, 0, -1, -0.610104, 0.792322, 2.66685e-08, 0.792322, 0.610104, -3.46335e-08, -0.645232, -0.112123, -0.773943)
+transform = Transform3D(-4.37114e-08, 0, -1, -0.610104, 0.792322, 2.66685e-08, 0.792322, 0.610104, -3.46335e-08, -0.645232, -0.112123, -0.51401144)
 
 [node name="Sparker4" parent="." instance=ExtResource("3_4ro1q")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.645232, -0.160371, 0.64396)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.645232, -0.160371, 0.68217146)
+
+[node name="car" parent="." instance=ExtResource("4_o6pw8")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0.011891723)

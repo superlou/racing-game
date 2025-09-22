@@ -59,7 +59,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="VBoxContainer/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(1152, 324)
+size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="InterpolatedCamera" type="Camera3D" parent="VBoxContainer/SubViewportContainer/SubViewport" node_paths=PackedStringArray("target", "look_at_target")]
@@ -78,6 +78,7 @@ vehicle = NodePath("../../../Car1")
 race_manager = NodePath("../../../RaceManager")
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 stretch = true
@@ -85,7 +86,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="VBoxContainer/SubViewportContainer2"]
 handle_input_locally = false
 size = Vector2i(1152, 324)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="InterpolatedCamera" type="Camera3D" parent="VBoxContainer/SubViewportContainer2/SubViewport" node_paths=PackedStringArray("target", "look_at_target")]
 transform = Transform3D(1, 0, 0, 0, 0.90494204, 0.42553484, 0, -0.42553484, 0.90494204, 4.09443, 3.6036701, 4.006975)
