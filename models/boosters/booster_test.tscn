@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://cbmjyulned7kf"]
+
+[ext_resource type="Shader" uid="uid://c738d8shk7cwr" path="res://models/boosters/booster_test.gdshader" id="1_17bft"]
+[ext_resource type="Script" uid="uid://4yyjb0vbva2i" path="res://models/boosters/booster.gd" id="1_43aaa"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cbx7t"]
+subdivide_width = 32
+subdivide_depth = 32
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_17bft"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_43aaa"]
+noise = SubResource("FastNoiseLite_17bft")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_17bft"]
+render_priority = 0
+shader = ExtResource("1_17bft")
+shader_parameter/noise = SubResource("NoiseTexture2D_43aaa")
+shader_parameter/height_scale = 0.5
+shader_parameter/background_color = Vector3(1, 0.8, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_17bft"]
+size = Vector3(2, 1, 2)
+
+[node name="BoosterTest" type="Node3D"]
+script = ExtResource("1_43aaa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_cbx7t")
+surface_material_override/0 = SubResource("ShaderMaterial_17bft")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_17bft")

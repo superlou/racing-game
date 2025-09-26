@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://btc18bdu05ji0"]
+[gd_scene load_steps=8 format=3 uid="uid://btc18bdu05ji0"]
 
 [ext_resource type="Script" uid="uid://duqx0kmuui0tf" path="res://systems/racing/checkpoint.gd" id="2_a5pqg"]
+[ext_resource type="PackedScene" uid="uid://cbmjyulned7kf" path="res://models/boosters/booster_test.tscn" id="4_b3ypf"]
 [ext_resource type="PackedScene" uid="uid://mm7d4g0vjj6u" path="res://models/gates/SimpleGate.tscn" id="8_kyfml"]
 [ext_resource type="PackedScene" uid="uid://brfbo4k6gwqd8" path="res://tracks/test_track/test_track_loop.tscn" id="10_wpb7k"]
 
@@ -74,3 +75,12 @@ shape = SubResource("BoxShape3D_b3ypf")
 
 [node name="test_track" parent="." instance=ExtResource("10_wpb7k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20038, 0)
+
+[node name="BoosterTest" parent="." instance=ExtResource("4_b3ypf")]
+transform = Transform3D(0.8489533, 0, -0.52846795, 0, 1, 0, 0.52846795, 0, 0.8489533, 90.2028, 0.21675348, 92.5251)
+
+[node name="BoosterTest2" parent="." instance=ExtResource("4_b3ypf")]
+transform = Transform3D(0.94732773, 0, -0.32026574, 0, 1, 0, 0.32026574, 0, 0.94732773, 92.51449, 0.21675348, 88.497475)
+
+[node name="BoosterTest3" parent="." instance=ExtResource("4_b3ypf")]
+transform = Transform3D(0.9653816, 0, -0.2608414, 0, 1, 0, 0.2608414, 0, 0.9653816, 94.053215, 0.21235228, 84.52299)
