@@ -63,12 +63,12 @@ size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="InterpolatedCamera" type="Camera3D" parent="VBoxContainer/SubViewportContainer/SubViewport" node_paths=PackedStringArray("target", "look_at_target")]
-transform = Transform3D(1, 0, 0, 0, 0.90494204, 0.4255348, 0, -0.4255348, 0.90494204, -0.00741863, 3.61805, 3.994689)
+transform = Transform3D(1, 0, 0, 0, 0.9594879, 0.28174952, 0, -0.28174952, 0.9594879, -0.00741863, 2.61805, 2.994689)
 current = true
 script = ExtResource("7_7o6gp")
 lerp_speed = 10.0
 target = NodePath("../../../../Car1")
-offset = Vector3(0, 2, 4)
+offset = Vector3(0, 1, 3)
 look_at_target = NodePath("../../../../Car1/PositionLeader")
 metadata/_custom_type_script = "uid://d2oayky7br4dx"
 
@@ -89,12 +89,12 @@ size = Vector2i(1152, 324)
 render_target_update_mode = 0
 
 [node name="InterpolatedCamera" type="Camera3D" parent="VBoxContainer/SubViewportContainer2/SubViewport" node_paths=PackedStringArray("target", "look_at_target")]
-transform = Transform3D(1, 0, 0, 0, 0.90494204, 0.42553484, 0, -0.42553484, 0.90494204, 4.09443, 3.6036701, 4.006975)
+transform = Transform3D(1, 0, 0, 0, 0.9594879, 0.28174952, 0, -0.28174952, 0.9594879, 4.09443, 2.6036701, 3.0069754)
 current = true
 script = ExtResource("7_7o6gp")
 lerp_speed = 10.0
 target = NodePath("../../../../Car2")
-offset = Vector3(0, 2, 4)
+offset = Vector3(0, 1, 3)
 look_at_target = NodePath("../../../../Car2/PositionLeader")
 metadata/_custom_type_script = "uid://d2oayky7br4dx"
 
@@ -122,7 +122,7 @@ show_forces = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.119063, 0)
 script = ExtResource("6_stwo3")
 gain = 0.0
-offset = Vector3(0, 2, 0)
+offset = Vector3(0, 1.5, 0)
 metadata/_custom_type_script = "uid://gdl2esxd1oi"
 
 [node name="PlayerInput" type="Node" parent="Car1" node_paths=PackedStringArray("race_manager")]
@@ -139,7 +139,7 @@ show_forces = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.119063, 0)
 script = ExtResource("6_stwo3")
 gain = 0.0
-offset = Vector3(0, 2, 0)
+offset = Vector3(0, 1.5, 0)
 metadata/_custom_type_script = "uid://gdl2esxd1oi"
 
 [node name="PlayerInput" type="Node" parent="Car2" node_paths=PackedStringArray("race_manager")]
