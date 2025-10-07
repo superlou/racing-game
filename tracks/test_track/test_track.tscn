@@ -77,10 +77,18 @@ shape = SubResource("BoxShape3D_b3ypf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20038, 0)
 
 [node name="BoosterTest" parent="." instance=ExtResource("4_b3ypf")]
-transform = Transform3D(0.8489533, 0, -0.52846795, 0, 1, 0, 0.52846795, 0, 0.8489533, 90.2028, 0.21675348, 92.5251)
+transform = Transform3D(0.7532306, 0, -0.6577565, 0, 1, 0, 0.6577565, 0, 0.7532306, 91.48238, 0.21675348, 100.69121)
+width = 10.0
+length = 10.0
 
 [node name="BoosterTest2" parent="." instance=ExtResource("4_b3ypf")]
-transform = Transform3D(0.94732773, 0, -0.32026574, 0, 1, 0, 0.32026574, 0, 0.94732773, 92.51449, 0.21675348, 88.497475)
+transform = Transform3D(0.9724269, 0, -0.23320776, 0, 1, 0, 0.23320776, 0, 0.9724269, 99.147255, 0.21675158, 86.88116)
+width = 10.0
+length = 10.0
+height = 2.0
 
 [node name="BoosterTest3" parent="." instance=ExtResource("4_b3ypf")]
-transform = Transform3D(0.9653816, 0, -0.2608414, 0, 1, 0, 0.2608414, 0, 0.9653816, 94.053215, 0.21235228, 84.52299)
+transform = Transform3D(0.8886253, 0, 0.45863417, 0, 1, 0, -0.45863417, 0, 0.8886253, 99.29594, 0.21235228, 71.51013)
+width = 10.0
+length = 10.0
+height = 2.0

@@ -3,10 +3,13 @@ uniform sampler2D noise;
 uniform float height_scale = 0.5;
 uniform vec3 background_color = vec3(1., 0.8, 0.2);
 
-float sdCircle( vec2 p, float r )
-{
-    return length(p) - r;
+void vertex() {
+	VERTEX.y += 0.05 * cos(VERTEX.x) * cos(VERTEX.z);
+	if (abs(VERTEX.x) > 0.95 || abs(VERTEX.z) > 0.95) {
+		VERTEX.y = 0.0;
+	}
 }
+
 
 float sdEquilateralTriangle( in vec2 p, in float r )
 {

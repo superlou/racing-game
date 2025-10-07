@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://4yyjb0vbva2i" path="res://models/boosters/booster.gd" id="1_43aaa"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_cbx7t"]
+resource_local_to_scene = true
+lightmap_size_hint = Vector2i(7, 7)
+size = Vector2(1, 1)
 subdivide_width = 32
 subdivide_depth = 32
 
@@ -20,7 +23,7 @@ shader_parameter/height_scale = 0.5
 shader_parameter/background_color = Vector3(1, 0.8, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_17bft"]
-size = Vector3(2, 1, 2)
+resource_local_to_scene = true
 
 [node name="BoosterTest" type="Node3D"]
 script = ExtResource("1_43aaa")
