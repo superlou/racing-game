@@ -12,7 +12,7 @@
 size = Vector3(1.70288, 0.405273, 1.74768)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_2oibr"]
-frequency = 0.0086
+frequency = 0.0021
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2oibr"]
 noise = SubResource("FastNoiseLite_2oibr")
@@ -25,7 +25,7 @@ shader_parameter/noise_tex = SubResource("NoiseTexture2D_2oibr")
 shader_parameter/speed = 1.0
 shader_parameter/fire_intensity = 3.44400016359
 shader_parameter/fresnel_power = 1.5030000713925
-shader_parameter/distortion_strength = 0.1
+shader_parameter/distortion_strength = 0.08400000399
 shader_parameter/noise_scale = 5.00000023424012
 
 [node name="Car" type="RigidBody3D" unique_id=913180843]
@@ -67,12 +67,20 @@ radial_segments = 32
 rings = 32
 material = SubResource("ShaderMaterial_bef6f")
 
+[node name="SpotLight3D" type="SpotLight3D" parent="Glow1" unique_id=843006348]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.0668656, 0)
+light_color = Color(0.09206217, 0.32242033, 1, 1)
+
 [node name="Glow2" type="CSGSphere3D" parent="." unique_id=473074676]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.73903, -0.07021899, 0.6841682)
 radius = 0.1
 radial_segments = 32
 rings = 32
 material = SubResource("ShaderMaterial_bef6f")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Glow2" unique_id=1713371886]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.0668656, 0)
+light_color = Color(0.09206217, 0.32242033, 1, 1)
 
 [node name="Glow3" type="CSGSphere3D" parent="." unique_id=1157259121]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7173928, -0.07021899, -0.41235447)
@@ -81,12 +89,20 @@ radial_segments = 32
 rings = 32
 material = SubResource("ShaderMaterial_bef6f")
 
+[node name="SpotLight3D" type="SpotLight3D" parent="Glow3" unique_id=157166868]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.0668656, 0)
+light_color = Color(0.09206217, 0.32242033, 1, 1)
+
 [node name="Glow4" type="CSGSphere3D" parent="." unique_id=1060445286]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.73903, -0.07021899, -0.41235447)
 radius = 0.1
 radial_segments = 32
 rings = 32
 material = SubResource("ShaderMaterial_bef6f")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Glow4" unique_id=1809524333]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.0668656, 0)
+light_color = Color(0.09206217, 0.32242033, 1, 1)
 
 [node name="Sparker" parent="." unique_id=42549874 instance=ExtResource("3_4ro1q")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.642, -0.160371, -0.4140033)
