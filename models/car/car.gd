@@ -18,7 +18,7 @@ var num_active_tracons := 0
 
 func _ready():
 	rotation_pid.set_coefficients(100.0, 10.0, 1.0)
-	counter_slide_pid.set_coefficients(200.0, 10.0, 40.0)
+	counter_slide_pid.set_coefficients(100.0, 10.0, 40.0)
 	counter_slide_pid.setpoint = 0.0
 
 
@@ -29,9 +29,9 @@ func apply_tracons(delta:float) -> void:
 		var force: Vector3 = tracon.calculate_global_force(delta)
 		if force.length() > 0.0:
 			num_active_tracons += 1
-		
+
 		apply_force(force, global_basis * tracon.position)
-		
+
 		if show_forces:
 			DebugDraw3D.draw_arrow(
 				tracon.global_position,
@@ -84,7 +84,7 @@ func apply_lateral_stabilization(delta:float) -> void:
 
 	var counter_slide_vector := Vector3.ZERO
 	if num_active_tracons >= 2:
-		counter_slide_vector = global_basis * counter_slide * Vector3.RIGHT	
+		counter_slide_vector = global_basis * counter_slide * Vector3.RIGHT
 
 	apply_force(counter_slide_vector)
 

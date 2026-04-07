@@ -35,6 +35,7 @@ physics_material_override = SubResource("PhysicsMaterial_e52qm")
 center_of_mass_mode = 1
 script = ExtResource("1_bcuj8")
 show_forces = true
+drag_scale = 0.1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1065126681]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0206642, 0.110291)
@@ -58,7 +59,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.71692395, 0.0639072, -0.40
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.107893, 0.581683)
 
 [node name="CenterOfDrag" type="Marker3D" parent="." unique_id=219182815]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.784653)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2301287, 0.39409763)
 
 [node name="Glow1" type="CSGSphere3D" parent="." unique_id=567925881]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7173928, -0.07021899, 0.6841682)
