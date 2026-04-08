@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://4c37q8rb7tk4"]
+
+[ext_resource type="Shader" uid="uid://b7xx1smiwxvjv" path="res://models/car/tracon_energy.gdshader" id="1_60gi4"]
+[ext_resource type="Script" uid="uid://dmn1v45sud6sh" path="res://models/car/tracon_fx.gd" id="1_tfada"]
+
+[sub_resource type="Gradient" id="Gradient_tfada"]
+offsets = PackedFloat32Array(0, 0.3025641, 0.78205127, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.44385415, 0.6720568, 1, 1, 0.26885998, 0.56886774, 1, 1, 0.120000005, 0.23733324, 1, 1)
+
+[sub_resource type="Curve" id="Curve_tfada"]
+_limits = [0.0, 0.1, 0.0, 1.0]
+_data = [Vector2(0, 0.0066985637), 0.0, 0.0, 0, 0, Vector2(0.9228856, 0.014784686), 0.0, 0.0, 0, 0, Vector2(1, 0.083205745), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_u7okj"]
+_limits = [0.0, 0.2, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5223881, 0.065789476), 0.0, 0.0, 0, 0, Vector2(0.8432836, 0.08928229), 0.0, 0.0, 0, 0, Vector2(1, 0.110303596), 0.15181479, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tfada"]
+frequency = 0.0066985637
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u7okj"]
+resource_local_to_scene = true
+noise = SubResource("FastNoiseLite_tfada")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bb3j5"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_60gi4")
+shader_parameter/fire_color = Color(1, 1, 1, 1)
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_u7okj")
+shader_parameter/speed = -0.9999998100000003
+shader_parameter/fire_intensity = 2.0
+shader_parameter/fresnel_power = 1.0670000506825
+shader_parameter/distortion_strength = 0.0
+shader_parameter/noise_scale = 1.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_ukpx8"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_bb3j5")
+radius = 0.15
+height = 0.15
+radial_segments = 32
+is_hemisphere = true
+
+[node name="TraconFX" type="Node3D" unique_id=60820739]
+script = ExtResource("1_tfada")
+intensity = 0.0
+color_map = SubResource("Gradient_tfada")
+frequency_map = SubResource("Curve_tfada")
+strength_map = SubResource("Curve_u7okj")
+
+[node name="Light" type="SpotLight3D" parent="." unique_id=954410060]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+spot_range = 2.0
+
+[node name="Aura" type="MeshInstance3D" parent="." unique_id=1602683366]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0)
+mesh = SubResource("SphereMesh_ukpx8")

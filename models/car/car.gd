@@ -40,6 +40,10 @@ func apply_tracons(delta:float) -> void:
 				0.02
 			)
 
+		# todo This is gross
+		var fx = tracon.get_node("TraconFX")
+		fx.intensity = clampf(force.length() / 250.0, 0.0, 1.0)
+
 
 func apply_engine() -> void:
 	if not player_input:

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c6k4ntrhq2ip4" path="res://models/car/car.gd" id="1_bcuj8"]
 [ext_resource type="PackedScene" uid="uid://be1o6fgbedwev" path="res://models/car/tracon.tscn" id="2_e52qm"]
-[ext_resource type="Shader" uid="uid://b7xx1smiwxvjv" path="res://models/car/tracon_energy.gdshader" id="3_2oibr"]
+[ext_resource type="PackedScene" uid="uid://4c37q8rb7tk4" path="res://models/car/tracon_fx.tscn" id="3_2oibr"]
 [ext_resource type="PackedScene" uid="uid://x7yofvc87nxo" path="res://systems/sparker/sparker.tscn" id="3_4ro1q"]
 [ext_resource type="PackedScene" uid="uid://boj1d0uq1omug" path="res://models/car/car.glb" id="4_o6pw8"]
 
@@ -10,23 +10,6 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8thfb"]
 size = Vector3(1.70288, 0.405273, 1.74768)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_2oibr"]
-frequency = 0.0021
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2oibr"]
-noise = SubResource("FastNoiseLite_2oibr")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bef6f"]
-render_priority = 0
-shader = ExtResource("3_2oibr")
-shader_parameter/fire_color = Color(0.100000024, 0.4149999, 1, 1)
-shader_parameter/noise_tex = SubResource("NoiseTexture2D_2oibr")
-shader_parameter/speed = 1.0
-shader_parameter/fire_intensity = 3.44400016359
-shader_parameter/fresnel_power = 1.5030000713925
-shader_parameter/distortion_strength = 0.08400000399
-shader_parameter/noise_scale = 5.00000023424012
 
 [node name="Car" type="RigidBody3D" unique_id=913180843]
 collision_layer = 3
@@ -46,64 +29,32 @@ shape = SubResource("BoxShape3D_8thfb")
 [node name="Tracon1" parent="Tracons" unique_id=402590296 instance=ExtResource("2_e52qm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.722415, 0.0639072, 0.68316436)
 
+[node name="TraconFX" parent="Tracons/Tracon1" unique_id=60820739 instance=ExtResource("3_2oibr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09953031, 0)
+
 [node name="Tracon2" parent="Tracons" unique_id=1028734389 instance=ExtResource("2_e52qm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7359037, 0.0639072, 0.68316436)
+
+[node name="TraconFX" parent="Tracons/Tracon2" unique_id=2097372408 instance=ExtResource("3_2oibr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09932865, 0)
 
 [node name="Tracon3" parent="Tracons" unique_id=199020393 instance=ExtResource("2_e52qm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7359037, 0.0639072, -0.4190793)
 
+[node name="TraconFX" parent="Tracons/Tracon3" unique_id=2022922325 instance=ExtResource("3_2oibr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09965079, 0)
+
 [node name="Tracon4" parent="Tracons" unique_id=707331329 instance=ExtResource("2_e52qm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.71692395, 0.0639072, -0.40809733)
+
+[node name="TraconFX" parent="Tracons/Tracon4" unique_id=1460389892 instance=ExtResource("3_2oibr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09965079, 0)
 
 [node name="EngineRay" type="RayCast3D" parent="." unique_id=1851770011]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.107893, 0.581683)
 
 [node name="CenterOfDrag" type="Marker3D" parent="." unique_id=219182815]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2301287, 0.39409763)
-
-[node name="Glow1" type="CSGSphere3D" parent="." unique_id=567925881]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7173928, -0.07021899, 0.6841682)
-radius = 0.1
-radial_segments = 32
-rings = 32
-material = SubResource("ShaderMaterial_bef6f")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Glow1" unique_id=843006348]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.0668656, 0)
-light_color = Color(0.09206217, 0.32242033, 1, 1)
-
-[node name="Glow2" type="CSGSphere3D" parent="." unique_id=473074676]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.73903, -0.07021899, 0.6841682)
-radius = 0.1
-radial_segments = 32
-rings = 32
-material = SubResource("ShaderMaterial_bef6f")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Glow2" unique_id=1713371886]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.0668656, 0)
-light_color = Color(0.09206217, 0.32242033, 1, 1)
-
-[node name="Glow3" type="CSGSphere3D" parent="." unique_id=1157259121]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7173928, -0.07021899, -0.41235447)
-radius = 0.1
-radial_segments = 32
-rings = 32
-material = SubResource("ShaderMaterial_bef6f")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Glow3" unique_id=157166868]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.0668656, 0)
-light_color = Color(0.09206217, 0.32242033, 1, 1)
-
-[node name="Glow4" type="CSGSphere3D" parent="." unique_id=1060445286]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.73903, -0.07021899, -0.41235447)
-radius = 0.1
-radial_segments = 32
-rings = 32
-material = SubResource("ShaderMaterial_bef6f")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Glow4" unique_id=1809524333]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.0668656, 0)
-light_color = Color(0.09206217, 0.32242033, 1, 1)
 
 [node name="Sparker" parent="." unique_id=42549874 instance=ExtResource("3_4ro1q")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.642, -0.160371, -0.4140033)
