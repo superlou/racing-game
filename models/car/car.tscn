@@ -9,7 +9,7 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e52qm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8thfb"]
-size = Vector3(1.70288, 0.405273, 1.74768)
+size = Vector3(1.703, 0.405, 1.748)
 
 [node name="Car" type="RigidBody3D" unique_id=913180843]
 collision_layer = 3

@@ -5,10 +5,13 @@ signal speed_changed(speed:float)
 
 @export var thrust := 500.0
 @export var turn_rate := 3.0
+@export var roll_torque := 50
+@export var pitch_torque := 50
 @export var show_forces := false
 @export var drag_scale := 1.0
 
 var rotation_pid := PID.new()
+var roll_pid := PID.new()
 var counter_slide_pid := PID.new()
 var num_active_tracons := 0
 
@@ -18,11 +21,12 @@ var num_active_tracons := 0
 
 func _ready():
 	rotation_pid.set_coefficients(100.0, 10.0, 1.0)
+	roll_pid.set_coefficients(100.0, 10.0, 1.0)
 	counter_slide_pid.set_coefficients(100.0, 10.0, 40.0)
 	counter_slide_pid.setpoint = 0.0
 
 
-func apply_tracons(delta:float) -> void:
+func apply_tracons(_delta:float) -> void:
 	num_active_tracons = 0
 
 	for tracon in $Tracons.get_children():
@@ -70,6 +74,20 @@ func apply_turn(delta:float) -> void:
 	apply_torque(global_basis * rotation_torque * Vector3.UP)
 
 
+func apply_roll(_delta:float) -> void:
+	if not player_input:
+		return
+
+	apply_torque(global_basis * roll_torque * player_input.roll * Vector3.FORWARD)
+
+
+func apply_pitch(_delta:float) -> void:
+	if not player_input:
+		return
+
+	apply_torque(global_basis * pitch_torque * player_input.pitch * Vector3.RIGHT)
+
+
 func apply_lateral_stabilization(delta:float) -> void:
 	var lateral_velocity := (global_basis.inverse() * linear_velocity).x
 	var counter_slide := counter_slide_pid.run(lateral_velocity, delta)
@@ -91,11 +109,15 @@ func apply_lateral_stabilization(delta:float) -> void:
 
 func _physics_process(delta:float) -> void:
 	apply_tracons(delta)
-	apply_engine()
+	if num_active_tracons > 0:
+		apply_engine()
+	else:
+		apply_pitch(delta)
 	apply_turn(delta)
+	apply_roll(delta)
 	apply_drag(delta)
 	apply_lateral_stabilization(delta)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	speed_changed.emit(linear_velocity.abs())
