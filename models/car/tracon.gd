@@ -4,7 +4,12 @@ extends Node3D
 @onready var raycast: RayCast3D = $RayCast3D
 @onready var no_collide_timer: Timer = $NoCollideTimer
 
-@export var target_distance := 1.0
+@export var target_distance := 1.0:
+	get:
+		return target_distance
+	set(value):
+		target_distance = value
+		pid.setpoint = target_distance
 
 @export var kp := 800.0
 @export var ki := 500.0
@@ -17,7 +22,7 @@ var global_force := Vector3.ZERO
 
 func _ready():
 	pid.set_coefficients(kp, ki, kd)
-	pid.setpoint = 1.0
+	pid.setpoint = target_distance
 
 
 func calculate_global_force(delta:float) -> Vector3:
