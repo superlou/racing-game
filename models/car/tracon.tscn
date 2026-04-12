@@ -1,13 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://be1o6fgbedwev"]
+[gd_scene format=3 uid="uid://be1o6fgbedwev"]
 
 [ext_resource type="Script" uid="uid://b670ux2pi6x1x" path="res://models/car/tracon.gd" id="1_lmeni"]
 
-[node name="Tracon" type="Node3D"]
+[node name="Tracon" type="Node3D" unique_id=1517190134]
 script = ExtResource("1_lmeni")
+target_distance = null
+kp = null
+ki = null
+kd = null
 
-[node name="RayCast3D" type="RayCast3D" parent="."]
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=300269672]
 target_position = Vector3(0, -2, 0)
 
-[node name="NoCollideTimer" type="Timer" parent="."]
+[node name="NoCollideTimer" type="Timer" parent="." unique_id=242227508]
 wait_time = 0.1
 one_shot = true

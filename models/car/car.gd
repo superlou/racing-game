@@ -26,23 +26,11 @@ func apply_tracons(delta:float) -> void:
 	num_active_tracons = 0
 
 	for tracon in $Tracons.get_children():
-		var force: Vector3 = tracon.calculate_global_force(delta)
-		if force.length() > 0.0:
+		tracon.show_forces = show_forces
+
+		if tracon.is_active():
 			num_active_tracons += 1
-
-		apply_force(force, global_basis * tracon.position)
-
-		if show_forces:
-			DebugDraw3D.draw_arrow(
-				tracon.global_position,
-				tracon.global_position + force / 100.0,
-				Color.WHITE,
-				0.02
-			)
-
-		# todo This is gross
-		var fx = tracon.get_node("TraconFX")
-		fx.intensity = clampf(force.length() / 250.0, 0.0, 1.0)
+			tracon.apply_force_to(self)
 
 
 func apply_engine() -> void:
