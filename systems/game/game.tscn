@@ -84,16 +84,17 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="VBoxContainer/SubViewportContainer2" unique_id=2052757075]
 handle_input_locally = false
-size = Vector2i(2, 2)
+size = Vector2i(1152, 324)
 render_target_update_mode = 0
 
 [node name="InterpolatedCamera" type="Camera3D" parent="VBoxContainer/SubViewportContainer2/SubViewport" unique_id=1441673455 node_paths=PackedStringArray("target")]
-transform = Transform3D(1, 0, 0, 0, 0.8944272, 0.44721365, 0, -0.44721365, 0.8944272, 4.09443, 3.6036701, 4.006975)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09443, 3.1036701, 4.006975)
 current = true
 script = ExtResource("7_7o6gp")
 lerp_speed = 20.0
 target = NodePath("../../../../Car2")
-offset = Vector3(0, 2, 4)
+offset = Vector3(0, 1.5, 4)
+look_at_offset = Vector3(0, 1.5, 0)
 metadata/_custom_type_script = "uid://d2oayky7br4dx"
 
 [node name="Hud" parent="VBoxContainer/SubViewportContainer2" unique_id=1171135533 node_paths=PackedStringArray("vehicle", "race_manager") instance=ExtResource("8_pdnc3")]

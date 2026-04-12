@@ -7,23 +7,14 @@ class_name InterpolatedCamera
 @export var offset := Vector3.ZERO
 @export var look_at_offset := Vector3.ZERO
 
-var was_moving := false
-
 func _physics_process(_delta: float) -> void:
 	if !target:
 		return
 
 	var up = target.transform.basis.y
-	var target_velocity = target.linear_velocity
-
 	var target_transform = global_transform
 
-	print(was_moving)
-
-	if target.linear_velocity.length() > 2.0:
-		was_moving = true
-
-	if was_moving:
+	if target.linear_velocity.length() > 0.1:
 		var norm_velocity := target.linear_velocity.normalized()
 		target_transform = target.global_transform \
 			.translated(-norm_velocity * offset.z) \
