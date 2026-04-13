@@ -11,9 +11,9 @@ extends Node3D
 		target_distance = value
 		pid.setpoint = target_distance
 
-@export var kp := 800.0
-@export var ki := 500.0
-@export var kd := 100.0
+@export var kp := 400.0
+@export var ki := 400.0
+@export var kd := 150.0
 
 var pid = PID.new()
 
