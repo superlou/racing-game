@@ -9,9 +9,9 @@ radius = 1.0
 radius = 1.0
 height = 2.0
 
-[node name="RandomPickup" type="Area3D" unique_id=344417520]
+[node name="RandomPickup" type="Area3D" unique_id=1920703677]
 script = ExtResource("1_i1dn3")
-metadata/_custom_type_script = "uid://c3fpq787b32pc"
+metadata/_custom_type_script = "uid://c2a18eg8kny50"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1189725632]
 shape = SubResource("SphereShape3D_i1dn3")

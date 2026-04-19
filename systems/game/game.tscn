@@ -1,12 +1,11 @@
 [gd_scene format=3 uid="uid://chrjsbl8by2fm"]
 
+[ext_resource type="PackedScene" uid="uid://ce0kf6cbmo4f4" path="res://systems/game/PlayerSubViewportContainer.tscn" id="1_2ub4j"]
 [ext_resource type="Script" uid="uid://b40o4uigxgwah" path="res://systems/racing/race_manager.gd" id="1_fcqpf"]
 [ext_resource type="Script" uid="uid://c3hv4p6gbyski" path="res://systems/racing/circuit.gd" id="2_2ub4j"]
 [ext_resource type="PackedScene" uid="uid://f14avd7gafev" path="res://hud/frame_rate_display.tscn" id="3_xtdty"]
 [ext_resource type="PackedScene" uid="uid://btc18bdu05ji0" path="res://tracks/test_track/test_track.tscn" id="4_fws3a"]
 [ext_resource type="PackedScene" uid="uid://40ykkxyji2i5" path="res://models/car/car.tscn" id="5_tpamu"]
-[ext_resource type="Script" uid="uid://d2oayky7br4dx" path="res://systems/cameras/interpolated_camera.gd" id="7_7o6gp"]
-[ext_resource type="PackedScene" uid="uid://cjklp2selxgut" path="res://hud/hud.tscn" id="8_pdnc3"]
 [ext_resource type="Script" uid="uid://6as47vdwymy3" path="res://systems/player_input.gd" id="9_2ub4j"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_fcqpf"]
@@ -51,56 +50,16 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="VBoxContainer" unique_id=2120390704]
+[node name="PlayerSubViewportContainer" parent="VBoxContainer" unique_id=1487364201 node_paths=PackedStringArray("vehicle", "race_manager") instance=ExtResource("1_2ub4j")]
 layout_mode = 2
-size_flags_vertical = 3
-stretch = true
+vehicle = NodePath("../../Car1")
+race_manager = NodePath("../../RaceManager")
 
-[node name="SubViewport" type="SubViewport" parent="VBoxContainer/SubViewportContainer" unique_id=1969135374]
-handle_input_locally = false
-size = Vector2i(1152, 648)
-render_target_update_mode = 4
-
-[node name="InterpolatedCamera" type="Camera3D" parent="VBoxContainer/SubViewportContainer/SubViewport" unique_id=973830354 node_paths=PackedStringArray("target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00741863, 3.11805, 3.994689)
-current = true
-script = ExtResource("7_7o6gp")
-lerp_speed = 30.0
-target = NodePath("../../../../Car1")
-offset = Vector3(0, 1.5, 4)
-look_at_offset = Vector3(0, 1.5, 0)
-metadata/_custom_type_script = "uid://d2oayky7br4dx"
-
-[node name="Hud" parent="VBoxContainer/SubViewportContainer" unique_id=355885214 node_paths=PackedStringArray("vehicle", "race_manager") instance=ExtResource("8_pdnc3")]
-layout_mode = 2
-vehicle = NodePath("../../../Car1")
-race_manager = NodePath("../../../RaceManager")
-
-[node name="SubViewportContainer2" type="SubViewportContainer" parent="VBoxContainer" unique_id=1568679891]
+[node name="PlayerSubViewportContainer2" parent="VBoxContainer" unique_id=397630400 node_paths=PackedStringArray("vehicle", "race_manager") instance=ExtResource("1_2ub4j")]
 visible = false
 layout_mode = 2
-size_flags_vertical = 3
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="VBoxContainer/SubViewportContainer2" unique_id=2052757075]
-handle_input_locally = false
-size = Vector2i(1152, 324)
-render_target_update_mode = 0
-
-[node name="InterpolatedCamera" type="Camera3D" parent="VBoxContainer/SubViewportContainer2/SubViewport" unique_id=1441673455 node_paths=PackedStringArray("target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09443, 3.1036701, 4.006975)
-current = true
-script = ExtResource("7_7o6gp")
-lerp_speed = 20.0
-target = NodePath("../../../../Car2")
-offset = Vector3(0, 1.5, 4)
-look_at_offset = Vector3(0, 1.5, 0)
-metadata/_custom_type_script = "uid://d2oayky7br4dx"
-
-[node name="Hud" parent="VBoxContainer/SubViewportContainer2" unique_id=1171135533 node_paths=PackedStringArray("vehicle", "race_manager") instance=ExtResource("8_pdnc3")]
-layout_mode = 2
-vehicle = NodePath("../../../Car2")
-race_manager = NodePath("../../../RaceManager")
+vehicle = NodePath("../../Car2")
+race_manager = NodePath("../../RaceManager")
 
 [node name="FrameRateDisplay" parent="." unique_id=1401142209 instance=ExtResource("3_xtdty")]
 
