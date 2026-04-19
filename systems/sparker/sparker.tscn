@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://x7yofvc87nxo"]
+[gd_scene format=3 uid="uid://x7yofvc87nxo"]
 
 [ext_resource type="Script" uid="uid://cbaoktjo3stwf" path="res://systems/sparker/sparker.gd" id="1_mjuy1"]
 
@@ -17,10 +17,10 @@ use_particle_trails = true
 material = SubResource("StandardMaterial3D_e52qm")
 size = 0.02
 
-[node name="Sparker" type="Node3D"]
+[node name="Sparker" type="Node3D" unique_id=10981974]
 script = ExtResource("1_mjuy1")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=31241172]
 emitting = false
 amount = 128
 lifetime = 0.5
@@ -29,9 +29,7 @@ trail_lifetime = 0.8
 process_material = SubResource("ParticleProcessMaterial_mjuy1")
 draw_pass_1 = SubResource("RibbonTrailMesh_tu6le")
 
-[node name="RayCast3D" type="RayCast3D" parent="."]
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1426437174]
 target_position = Vector3(0, -0.1, 0)
 
-[node name="Node3D" type="Node3D" parent="."]
-
-[node name="ShapeCast3D" type="ShapeCast3D" parent="."]
+[node name="Node3D" type="Node3D" parent="." unique_id=1220515962]
