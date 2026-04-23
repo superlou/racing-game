@@ -81,7 +81,7 @@ func apply_roll(_delta:float) -> void:
 	if not player_input:
 		return
 
-	apply_torque(global_basis * roll_torque * player_input.roll * Vector3.FORWARD)
+	apply_torque(global_basis * roll_torque * -player_input.turn * Vector3.FORWARD)
 
 
 func apply_pitch(_delta:float) -> void:
@@ -114,10 +114,11 @@ func _physics_process(delta:float) -> void:
 	apply_tracons(delta)
 	if num_active_tracons > 0:
 		apply_engine()
+		apply_turn(delta)
 	else:
 		apply_pitch(delta)
-	apply_turn(delta)
-	apply_roll(delta)
+		apply_roll(delta)
+
 	apply_drag(delta)
 	apply_lateral_stabilization(delta)
 
