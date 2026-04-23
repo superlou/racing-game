@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="640"
+   height="480"
+   viewBox="0 0 169.33333 127"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.3 (1:1.4.3+202512261035+0d15f75042)"
+   sodipodi:docname="item_icons.svg"
+   inkscape:export-batch-name="item_icon"
+   inkscape:export-batch-path="/home/lsimons/workspace/racing-game/models/items"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="1.6453907"
+     inkscape:cx="976.05999"
+     inkscape:cy="147.38141"
+     inkscape:window-width="1920"
+     inkscape:window-height="1021"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:page
+       x="0"
+       y="0"
+       width="169.33333"
+       height="127"
+       id="page1"
+       margin="0"
+       bleed="0" />
+    <inkscape:page
+       x="194.5242"
+       y="4.5909629"
+       width="33.866665"
+       height="33.866665"
+       id="page2"
+       margin="0"
+       bleed="0"
+       inkscape:label="boost" />
+    <inkscape:page
+       x="233.07967"
+       y="4.5909629"
+       width="33.866665"
+       height="33.866665"
+       id="page3"
+       margin="0"
+       bleed="0"
+       inkscape:label="shield" />
+    <inkscape:page
+       x="271.8956"
+       y="4.5909629"
+       width="33.866665"
+       height="33.866665"
+       id="page4"
+       margin="0"
+       bleed="0"
+       inkscape:label="rocket" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#a51d2d;stroke-width:0.264583;paint-order:stroke markers fill"
+       id="rect8"
+       width="22.692497"
+       height="22.692497"
+       x="208.4808"
+       y="-199.985"
+       transform="rotate(45)" />
+    <path
+       sodipodi:type="star"
+       style="fill:#1a5fb4;stroke-width:0.285983;paint-order:stroke markers fill"
+       id="path7"
+       inkscape:flatsided="true"
+       sodipodi:sides="6"
+       sodipodi:cx="242.51463"
+       sodipodi:cy="8.4658709"
+       sodipodi:r1="17.596621"
+       sodipodi:r2="20.461187"
+       sodipodi:arg1="1.0471976"
+       sodipodi:arg2="1.5707964"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 251.31294,23.704992 -17.59662,-1e-6 -8.79831,-15.239121 8.79831,-15.23912 17.59662,9e-7 8.79831,15.2391208 z"
+       inkscape:transform-center-x="-0.61146272"
+       inkscape:transform-center-y="-1.216226"
+       transform="matrix(0.92517136,0,0,0.92517136,25.500092,13.186992)" />
+    <circle
+       style="fill:#613583;stroke-width:0.264584;paint-order:stroke markers fill"
+       id="path6"
+       cx="211.26224"
+       cy="21.104042"
+       r="15.238567" />
+    <text
+       xml:space="preserve"
+       style="font-size:8.46667px;line-height:1.3;font-family:Lato;-inkscape-font-specification:Lato;text-align:center;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#dc8add;stroke-width:0.264583;paint-order:stroke markers fill"
+       x="210.99553"
+       y="24.103359"
+       id="text4"><tspan
+         sodipodi:role="line"
+         id="tspan4"
+         style="font-size:8.46667px;fill:#dc8add;stroke-width:0.264583"
+         x="210.99553"
+         y="24.103359">Boost</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:8.46667px;line-height:1.3;font-family:Lato;-inkscape-font-specification:Lato;text-align:center;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#99c1f1;stroke-width:0.264583;paint-order:stroke markers fill"
+       x="250.06877"
+       y="24.103359"
+       id="text5"><tspan
+         sodipodi:role="line"
+         id="tspan5"
+         style="font-size:8.46667px;stroke-width:0.264583;fill:#99c1f1"
+         x="250.06877"
+         y="24.103359">Shield</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:8.46667px;line-height:1.3;font-family:Lato;-inkscape-font-specification:Lato;text-align:center;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#f66151;stroke-width:0.264583;paint-order:stroke markers fill"
+       x="288.91064"
+       y="24.754576"
+       id="text6"><tspan
+         sodipodi:role="line"
+         id="tspan6"
+         style="font-size:8.46667px;fill:#f66151;stroke-width:0.264583"
+         x="288.91064"
+         y="24.754576">Rocket</tspan></text>
+  </g>
+</svg>

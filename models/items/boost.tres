@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://fvtupa7tnne6"]
+
+[ext_resource type="Texture2D" uid="uid://bfuknpaifvntv" path="res://models/items/item_icon_boost.png" id="1_5iqq8"]
+[ext_resource type="Script" uid="uid://67m7oi271tng" path="res://models/items/item_data.gd" id="2_eolei"]
+
+[resource]
+script = ExtResource("2_eolei")
+name = "Boost"
+icon = ExtResource("1_5iqq8")
+metadata/_custom_type_script = "uid://67m7oi271tng"

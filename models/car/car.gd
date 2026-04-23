@@ -2,6 +2,7 @@ extends RigidBody3D
 class_name Car
 
 signal speed_changed(speed:float)
+signal activated_pickup(pickup: Pickup)
 
 @export var thrust := 500.0
 @export var turn_rate := 3.0
@@ -18,6 +19,8 @@ var num_active_tracons := 0
 @onready var center_of_drag:Marker3D = $CenterOfDrag
 @onready var player_input:PlayerInput = find_children("*", "PlayerInput").get(0)
 
+var item_slot: ItemData
+signal item_slot_changed(item: ItemData)
 
 func _ready():
 	rotation_pid.set_coefficients(100.0, 10.0, 1.0)
@@ -121,3 +124,8 @@ func _physics_process(delta:float) -> void:
 
 func _process(_delta: float) -> void:
 	speed_changed.emit(linear_velocity.abs())
+
+
+func pick_up_item(item: ItemData) -> void:
+	item_slot = item
+	item_slot_changed.emit(item)

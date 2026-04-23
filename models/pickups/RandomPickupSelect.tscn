@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://46miagumx08r"]
+
+[ext_resource type="Script" uid="uid://ctmd2xbsloclm" path="res://models/pickups/random_pickup_select.gd" id="1_0aggf"]
+
+[node name="RandomPickupSelect" type="Control" unique_id=1874757151]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0aggf")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1189095534]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 20
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=1777308899]
+unique_name_in_owner = true
+layout_mode = 2

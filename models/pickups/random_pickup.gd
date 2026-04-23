@@ -1,6 +1,6 @@
 extends Pickup
 class_name RandomPickup
 
-func _on_entered(body: Node3D) -> void:
-	print("picked up by ", body)
-	activated.emit(body)
+func _ready():
+	super()
+	splash = preload("res://models/pickups/RandomPickupSelect.tscn")

@@ -5,13 +5,19 @@
 [ext_resource type="PackedScene" uid="uid://cjklp2selxgut" path="res://hud/hud.tscn" id="3_rpbfq"]
 
 [node name="PlayerSubViewportContainer" type="SubViewportContainer" unique_id=1487364201]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch = true
 script = ExtResource("1_62twl")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1584735074]
 handle_input_locally = false
-size = Vector2i(2, 2)
+size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="Camera" type="Camera3D" parent="SubViewport" unique_id=1862176852]
@@ -25,5 +31,9 @@ look_at_offset = Vector3(0, 1.5, 0)
 metadata/_custom_type_script = "uid://d2oayky7br4dx"
 
 [node name="Hud" parent="." unique_id=864851274 instance=ExtResource("3_rpbfq")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ItemSlot" type="TextureRect" parent="." unique_id=818884292]
 unique_name_in_owner = true
 layout_mode = 2
