@@ -1,5 +1,5 @@
 @tool
-extends SubViewportContainer
+extends Control
 
 @export var player_num: int :
 	set(value):

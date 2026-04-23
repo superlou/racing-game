@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://chrjsbl8by2fm"]
 
-[ext_resource type="PackedScene" uid="uid://ce0kf6cbmo4f4" path="res://systems/game/PlayerSubViewportContainer.tscn" id="1_2ub4j"]
+[ext_resource type="PackedScene" uid="uid://ce0kf6cbmo4f4" path="res://systems/game/PlayerView.tscn" id="1_2ub4j"]
 [ext_resource type="Script" uid="uid://b40o4uigxgwah" path="res://systems/racing/race_manager.gd" id="1_fcqpf"]
 [ext_resource type="Script" uid="uid://c3hv4p6gbyski" path="res://systems/racing/circuit.gd" id="2_2ub4j"]
 [ext_resource type="PackedScene" uid="uid://f14avd7gafev" path="res://hud/frame_rate_display.tscn" id="3_xtdty"]
@@ -50,12 +50,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="PlayerSubViewportContainer" parent="VBoxContainer" unique_id=1487364201 node_paths=PackedStringArray("vehicle", "race_manager") instance=ExtResource("1_2ub4j")]
+[node name="PlayerView0" parent="VBoxContainer" unique_id=1487364201 node_paths=PackedStringArray("vehicle", "race_manager") instance=ExtResource("1_2ub4j")]
 layout_mode = 2
 vehicle = NodePath("../../Car1")
 race_manager = NodePath("../../RaceManager")
 
-[node name="PlayerSubViewportContainer2" parent="VBoxContainer" unique_id=397630400 node_paths=PackedStringArray("vehicle", "race_manager") instance=ExtResource("1_2ub4j")]
+[node name="PlayerView1" parent="VBoxContainer" unique_id=397630400 node_paths=PackedStringArray("vehicle", "race_manager") instance=ExtResource("1_2ub4j")]
+visible = false
 layout_mode = 2
 player_num = 1
 vehicle = NodePath("../../Car2")
