@@ -15,39 +15,25 @@ func _ready() -> void:
 	process_priority = get_parent().process_priority - 1
 
 
+func _check_bipolar_action_pressed(positive: String, negative: String) -> float:
+	if Input.is_action_pressed(input_prefix + positive):
+		return 1.0
+	elif Input.is_action_pressed(input_prefix + negative):
+		return -1.0
+	else:
+		return 0.0
+
+
 func _process(_delta: float) -> void:
 	if race_manager and race_manager.state in [RaceManager.RaceState.NEW, RaceManager.RaceState.COUNTDOWN]:
 		accelerate = 0.0
 		turn = 0.0
 		return
 
-	if Input.is_action_pressed(input_prefix + "thrust_forward"):
-		accelerate = 1.0
-	elif Input.is_action_pressed(input_prefix + "thrust_reverse"):
-		accelerate = -1.0
-	else:
-		accelerate = 0.0
-
-	if Input.is_action_pressed(input_prefix + "turn_left"):
-		turn = 1.0
-	elif Input.is_action_pressed(input_prefix + "turn_right"):
-		turn = -1.0
-	else:
-		turn = 0.0
-
-	# if Input.is_action_pressed(input_prefix + "roll_left"):
-	# 	roll = -1.0
-	# elif Input.is_action_pressed(input_prefix + "roll_right"):
-	# 	roll = 1.0
-	# else:
-	# 	roll = 0.0
-
-	if Input.is_action_pressed(input_prefix + "pitch_up"):
-		pitch = 1.0
-	elif Input.is_action_pressed(input_prefix + "pitch_down"):
-		pitch = -1.0
-	else:
-		pitch = 0.0
+	accelerate = _check_bipolar_action_pressed("thrust_forward", "thrust_reverse")
+	turn = _check_bipolar_action_pressed("turn_left", "turn_right")
+	pitch = _check_bipolar_action_pressed("pitch_up", "pitch_down")
+	# roll = _check_bipolar_action_pressed("roll_right", "roll_left")
 
 
 func _unhandled_input(_event: InputEvent) -> void:
