@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bnsnw2m0i03tp"]
 
-[ext_resource type="Script" uid="uid://bchh4gnortsai" path="res://models/items/shield.gd" id="1_fe8av"]
+[ext_resource type="Script" uid="uid://bchh4gnortsai" path="res://models/items/shield/shield.gd" id="1_fe8av"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_01jda"]
 transparency = 1

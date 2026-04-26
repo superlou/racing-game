@@ -33,11 +33,11 @@ func _on_activated_pickup(pickup: Pickup):
 	active_splash = splash
 	add_child(splash)
 
-func _on_pickup_item_selected(item: ItemData):
+func _on_pickup_item_selected(item: ItemDef):
 	active_splash = null
 	vehicle.pick_up_item(item)
 
-func _on_item_slot_changed(item: ItemData):
+func _on_item_slot_changed(item: ItemDef):
 	if item:
 		%ItemSlot.texture = item.icon
 	else:

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemDef" format=3 uid="uid://btudw1uca16j"]
+
+[ext_resource type="PackedScene" uid="uid://bnsnw2m0i03tp" path="res://models/items/shield/shield.tscn" id="1_t4v88"]
+[ext_resource type="Texture2D" uid="uid://rpcjy1ffl0jh" path="res://models/items/shield/shield_icon.png" id="2_3yo1j"]
+[ext_resource type="Script" uid="uid://67m7oi271tng" path="res://models/items/item_def.gd" id="3_0cdy1"]
+
+[resource]
+script = ExtResource("3_0cdy1")
+name = "Shield"
+icon = ExtResource("2_3yo1j")
+active_scene = ExtResource("1_t4v88")
+metadata/_custom_type_script = "uid://67m7oi271tng"

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dy36tqiwqjtuu"]
 
-[ext_resource type="Script" uid="uid://d3obmgbsfy1nf" path="res://models/items/boost.gd" id="1_cjelt"]
+[ext_resource type="Script" uid="uid://d3obmgbsfy1nf" path="res://models/items/boost/boost.gd" id="1_cjelt"]
 
 [node name="Boost" type="Node3D" unique_id=1939730916]
 script = ExtResource("1_cjelt")

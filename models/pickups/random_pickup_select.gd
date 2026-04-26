@@ -5,7 +5,7 @@ var current_speed := start_speed
 var current_item = Items.pick_random()
 var current_item_remaining_time := 1.0 / start_speed
 
-signal selected(item: ItemData)
+signal selected(item: ItemDef)
 
 func _ready() -> void:
 	pass

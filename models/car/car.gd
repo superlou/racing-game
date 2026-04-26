@@ -19,8 +19,8 @@ var num_active_tracons := 0
 @onready var center_of_drag:Marker3D = $CenterOfDrag
 @onready var player_input:PlayerInput = find_children("*", "PlayerInput").get(0)
 
-var item_slot: ItemData
-signal item_slot_changed(item: ItemData)
+var item_slot: ItemDef
+signal item_slot_changed(item: ItemDef)
 
 func _ready():
 	rotation_pid.set_coefficients(100.0, 10.0, 1.0)
@@ -127,7 +127,7 @@ func _process(_delta: float) -> void:
 	speed_changed.emit(linear_velocity.abs())
 
 
-func pick_up_item(item: ItemData) -> void:
+func pick_up_item(item: ItemDef) -> void:
 	item_slot = item
 	item_slot_changed.emit(item_slot)
 
@@ -144,10 +144,8 @@ func activate_item_slot() -> void:
 	if not item_slot:
 		return
 
-	if item_slot.name == "Boost":
-		add_child(preload("res://models/items/boost.tscn").instantiate())
-	elif item_slot.name == "Shield":
-		add_child(preload("res://models/items/shield.tscn").instantiate())
+	if item_slot.active_scene:
+		add_child(item_slot.active_scene.instantiate())
 
 	item_slot = null
 	item_slot_changed.emit(item_slot)
