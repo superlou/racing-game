@@ -2,6 +2,7 @@ extends Node
 class_name PlayerInput
 
 @export var input_prefix := ""
+@export var input_map: PlayerInputMap
 @export var race_manager:RaceManager
 
 var accelerate := 0.0
@@ -13,6 +14,7 @@ var use := true
 
 func _ready() -> void:
 	process_priority = get_parent().process_priority - 1
+	input_map.register_inputs(input_prefix)
 
 
 func _check_bipolar_action_pressed(positive: String, negative: String) -> float:

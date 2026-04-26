@@ -1,13 +1,7 @@
 @tool
 extends Control
 
-@export var player_num: int :
-	set(value):
-		player_num = value
-		for i in range(10, 21):
-			%Camera.set_cull_mask_value(i, false)
-
-		%Camera.set_cull_mask_value(player_num + 10, true)
+@export var player_num: int = 0
 
 @export var vehicle: Node3D :
 	set(value):

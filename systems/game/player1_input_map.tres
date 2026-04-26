@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="PlayerInputMap" format=3 uid="uid://c014ecvv24jsg"]
+
+[ext_resource type="Script" uid="uid://bhhlaj3mfie7r" path="res://systems/game/player_input_map.gd" id="1_iyjq0"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_iyjq0"]
+device = -1
+keycode = 87
+unicode = 119
+
+[sub_resource type="InputEventKey" id="InputEventKey_pxsql"]
+device = -1
+keycode = 83
+unicode = 115
+
+[sub_resource type="InputEventKey" id="InputEventKey_ffmro"]
+device = -1
+keycode = 65
+unicode = 97
+
+[sub_resource type="InputEventKey" id="InputEventKey_m1h46"]
+device = -1
+keycode = 68
+unicode = 100
+
+[sub_resource type="InputEventKey" id="InputEventKey_ws56e"]
+device = -1
+keycode = 87
+unicode = 119
+
+[sub_resource type="InputEventKey" id="InputEventKey_igtfj"]
+device = -1
+keycode = 83
+unicode = 115
+
+[sub_resource type="InputEventKey" id="InputEventKey_iwvis"]
+device = -1
+keycode = 65
+unicode = 97
+
+[sub_resource type="InputEventKey" id="InputEventKey_2743u"]
+device = -1
+keycode = 68
+unicode = 100
+
+[sub_resource type="InputEventKey" id="InputEventKey_1qccu"]
+device = -1
+keycode = 69
+unicode = 101
+
+[resource]
+script = ExtResource("1_iyjq0")
+thrust_forward = SubResource("InputEventKey_ws56e")
+thrust_reverse = SubResource("InputEventKey_igtfj")
+pitch_up = SubResource("InputEventKey_pxsql")
+pitch_down = SubResource("InputEventKey_iyjq0")
+turn_left = SubResource("InputEventKey_iwvis")
+turn_right = SubResource("InputEventKey_2743u")
+roll_left = SubResource("InputEventKey_ffmro")
+roll_right = SubResource("InputEventKey_m1h46")
+use = SubResource("InputEventKey_1qccu")
+metadata/_custom_type_script = "uid://bhhlaj3mfie7r"

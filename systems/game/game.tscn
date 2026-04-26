@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://f14avd7gafev" path="res://hud/frame_rate_display.tscn" id="3_xtdty"]
 [ext_resource type="PackedScene" uid="uid://btc18bdu05ji0" path="res://tracks/test_track/test_track.tscn" id="4_fws3a"]
 [ext_resource type="PackedScene" uid="uid://40ykkxyji2i5" path="res://models/car/car.tscn" id="5_tpamu"]
+[ext_resource type="Resource" uid="uid://c014ecvv24jsg" path="res://systems/game/player1_input_map.tres" id="8_fcqpf"]
 [ext_resource type="Script" uid="uid://6as47vdwymy3" path="res://systems/player_input.gd" id="9_2ub4j"]
+[ext_resource type="Resource" uid="uid://bk3yfr3de8pnk" path="res://systems/game/player2_input_map.tres" id="9_xtdty"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_fcqpf"]
 ground_color = Color(0.516267, 0.64, 0.384, 1)
@@ -50,15 +52,15 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="PlayerView0" parent="VBoxContainer" unique_id=1487364201 node_paths=PackedStringArray("vehicle", "race_manager") instance=ExtResource("1_2ub4j")]
+[node name="PlayerView1" parent="VBoxContainer" unique_id=1487364201 node_paths=PackedStringArray("vehicle", "race_manager") instance=ExtResource("1_2ub4j")]
 layout_mode = 2
+player_num = 1
 vehicle = NodePath("../../Car1")
 race_manager = NodePath("../../RaceManager")
 
-[node name="PlayerView1" parent="VBoxContainer" unique_id=397630400 node_paths=PackedStringArray("vehicle", "race_manager") instance=ExtResource("1_2ub4j")]
-visible = false
+[node name="PlayerView2" parent="VBoxContainer" unique_id=397630400 node_paths=PackedStringArray("vehicle", "race_manager") instance=ExtResource("1_2ub4j")]
 layout_mode = 2
-player_num = 1
+player_num = 2
 vehicle = NodePath("../../Car2")
 race_manager = NodePath("../../RaceManager")
 
@@ -82,6 +84,7 @@ show_forces = false
 [node name="PlayerInput" type="Node" parent="Car1" unique_id=405108268 node_paths=PackedStringArray("race_manager")]
 script = ExtResource("9_2ub4j")
 input_prefix = "p1_"
+input_map = ExtResource("8_fcqpf")
 race_manager = NodePath("../../RaceManager")
 metadata/_custom_type_script = "uid://6as47vdwymy3"
 
@@ -92,5 +95,6 @@ show_forces = false
 [node name="PlayerInput" type="Node" parent="Car2" unique_id=1316725542 node_paths=PackedStringArray("race_manager")]
 script = ExtResource("9_2ub4j")
 input_prefix = "p2_"
+input_map = ExtResource("9_xtdty")
 race_manager = NodePath("../../RaceManager")
 metadata/_custom_type_script = "uid://6as47vdwymy3"
