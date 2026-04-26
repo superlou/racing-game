@@ -129,4 +129,25 @@ func _process(_delta: float) -> void:
 
 func pick_up_item(item: ItemData) -> void:
 	item_slot = item
-	item_slot_changed.emit(item)
+	item_slot_changed.emit(item_slot)
+
+
+func _unhandled_input(_event: InputEvent) -> void:
+	if not player_input:
+		return
+
+	if player_input.use:
+		activate_item_slot()
+
+
+func activate_item_slot() -> void:
+	if not item_slot:
+		return
+
+	if item_slot.name == "Boost":
+		add_child(preload("res://models/items/boost.tscn").instantiate())
+	elif item_slot.name == "Shield":
+		add_child(preload("res://models/items/shield.tscn").instantiate())
+
+	item_slot = null
+	item_slot_changed.emit(item_slot)

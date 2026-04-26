@@ -8,6 +8,7 @@ var accelerate := 0.0
 var turn := 0.0
 var roll := 0.0
 var pitch := 0.0
+var use := true
 
 
 func _ready() -> void:
@@ -47,3 +48,7 @@ func _process(_delta: float) -> void:
 		pitch = -1.0
 	else:
 		pitch = 0.0
+
+
+func _unhandled_input(_event: InputEvent) -> void:
+	use = Input.is_action_just_pressed(input_prefix + "use")

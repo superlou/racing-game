@@ -4,7 +4,7 @@ extends Node
 var db: Dictionary[String, ItemData] = {
 	"boost": preload("res://models/items/boost.tres"),
 	"shield": preload("res://models/items/shield.tres"),
-	"rocket": preload("res://models/items/rocket.tres"),
+	# "rocket": preload("res://models/items/rocket.tres"),
 }
 
 func pick_first() -> ItemData:
