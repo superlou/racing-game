@@ -6,8 +6,8 @@ signal activated_pickup(pickup: Pickup)
 
 @export var thrust := 500.0
 @export var turn_rate := 3.0
-@export var roll_torque := 50
-@export var pitch_torque := 50
+@export var roll_torque := 20
+@export var pitch_torque := 20
 @export var show_forces := false
 @export var drag_scale := 1.0
 

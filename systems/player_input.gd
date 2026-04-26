@@ -35,12 +35,12 @@ func _process(_delta: float) -> void:
 	else:
 		turn = 0.0
 
-	if Input.is_action_pressed(input_prefix + "roll_left"):
-		roll = -1.0
-	elif Input.is_action_pressed(input_prefix + "roll_right"):
-		roll = 1.0
-	else:
-		roll = 0.0
+	# if Input.is_action_pressed(input_prefix + "roll_left"):
+	# 	roll = -1.0
+	# elif Input.is_action_pressed(input_prefix + "roll_right"):
+	# 	roll = 1.0
+	# else:
+	# 	roll = 0.0
 
 	if Input.is_action_pressed(input_prefix + "pitch_up"):
 		pitch = 1.0
