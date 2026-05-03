@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://chrjsbl8by2fm"]
 
-[ext_resource type="PackedScene" uid="uid://ce0kf6cbmo4f4" path="res://systems/game/PlayerView.tscn" id="1_2ub4j"]
 [ext_resource type="Script" uid="uid://b40o4uigxgwah" path="res://systems/racing/race_manager.gd" id="1_fcqpf"]
+[ext_resource type="Script" uid="uid://cralx0ts4l44t" path="res://systems/game/game.gd" id="1_xtdty"]
 [ext_resource type="Script" uid="uid://c3hv4p6gbyski" path="res://systems/racing/circuit.gd" id="2_2ub4j"]
+[ext_resource type="PackedScene" uid="uid://ce0kf6cbmo4f4" path="res://systems/game/PlayerView.tscn" id="2_fws3a"]
+[ext_resource type="Script" uid="uid://drc5hjdwjay0t" path="res://systems/game/player_view.gd" id="3_fws3a"]
 [ext_resource type="PackedScene" uid="uid://f14avd7gafev" path="res://hud/frame_rate_display.tscn" id="3_xtdty"]
 [ext_resource type="PackedScene" uid="uid://btc18bdu05ji0" path="res://tracks/test_track/test_track.tscn" id="4_fws3a"]
 [ext_resource type="PackedScene" uid="uid://40ykkxyji2i5" path="res://models/car/car.tscn" id="5_tpamu"]
@@ -34,6 +36,7 @@ sequence = Dictionary[String, String]({
 metadata/_custom_type_script = "uid://c3hv4p6gbyski"
 
 [node name="Game" type="Node" unique_id=608386395]
+script = ExtResource("1_xtdty")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1172730186]
 environment = SubResource("Environment_2ub4j")
@@ -42,7 +45,7 @@ environment = SubResource("Environment_2ub4j")
 transform = Transform3D(1, 0, 0, 0, 0.0890334, 0.996029, 0, -0.996029, 0.0890334, -6.03195, 4.21754, 0)
 shadow_enabled = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=450888093]
+[node name="ViewGrid" type="GridContainer" parent="." unique_id=111403390]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -50,25 +53,21 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/separation = 0
 
-[node name="PlayerView1" parent="VBoxContainer" unique_id=1487364201 node_paths=PackedStringArray("vehicle", "race_manager") instance=ExtResource("1_2ub4j")]
+[node name="PlayerView1" type="Control" parent="ViewGrid" unique_id=1098283348 node_paths=PackedStringArray("vehicle", "race_manager") instance=ExtResource("2_fws3a")]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("3_fws3a")
 player_num = 1
 vehicle = NodePath("../../Car1")
-race_manager = NodePath("../../RaceManager")
-
-[node name="PlayerView2" parent="VBoxContainer" unique_id=397630400 node_paths=PackedStringArray("vehicle", "race_manager") instance=ExtResource("1_2ub4j")]
-layout_mode = 2
-player_num = 2
-vehicle = NodePath("../../Car2")
 race_manager = NodePath("../../RaceManager")
 
 [node name="FrameRateDisplay" parent="." unique_id=1401142209 instance=ExtResource("3_xtdty")]
 
 [node name="RaceManager" type="Node" parent="." unique_id=166253537 node_paths=PackedStringArray("cars")]
 script = ExtResource("1_fcqpf")
-cars = [NodePath("../Car1"), NodePath("../Car2")]
+cars = [NodePath("../Car1"), NodePath("../Car2"), NodePath("../Car3"), NodePath("../Car4")]
 circuit = SubResource("Resource_8sms4")
 state = 1
 race_laps = 2
@@ -98,3 +97,9 @@ input_prefix = "p2_"
 input_map = ExtResource("9_xtdty")
 race_manager = NodePath("../../RaceManager")
 metadata/_custom_type_script = "uid://6as47vdwymy3"
+
+[node name="Car3" parent="." unique_id=913180843 instance=ExtResource("5_tpamu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9254551, 1.6344212, 3.8138924)
+
+[node name="Car4" parent="." unique_id=1508007165 instance=ExtResource("5_tpamu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1308384, 1.6344212, 3.8138924)

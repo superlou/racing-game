@@ -1,5 +1,6 @@
 @tool
 extends Control
+class_name PlayerView
 
 @export var player_num: int = 0
 
@@ -8,8 +9,9 @@ extends Control
 		vehicle = value
 		%Camera.target = vehicle
 		%Hud.vehicle = vehicle
-		vehicle.activated_pickup.connect(_on_activated_pickup)
-		vehicle.item_slot_changed.connect(_on_item_slot_changed)
+		if vehicle:
+			vehicle.activated_pickup.connect(_on_activated_pickup)
+			vehicle.item_slot_changed.connect(_on_item_slot_changed)
 
 @export var race_manager: RaceManager :
 	set(value):
