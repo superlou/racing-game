@@ -12,6 +12,14 @@ var PlayerViewScene = preload("res://systems/game/PlayerView.tscn")
 			_build_player_views()
 
 
+func _ready() -> void:
+	var args = Array(OS.get_cmdline_args())
+
+	var num_players_index := args.find("--num_players")
+	if num_players_index >= 0:
+		num_players = int(args[num_players_index + 1])
+
+
 func _build_player_views():
 	for child in view_grid.get_children():
 		child.queue_free()
