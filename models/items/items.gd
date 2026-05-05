@@ -2,8 +2,8 @@ extends Node
 
 
 var db: Dictionary[String, ItemDef] = {
-	"boost": preload("res://models/items/boost/boost_def.tres"),
-	"shield": preload("res://models/items/shield/shield_def.tres"),
+	# "boost": preload("res://models/items/boost/boost_def.tres"),
+	# "shield": preload("res://models/items/shield/shield_def.tres"),
 	"rocket": preload("res://models/items/rocket/rocket_def.tres"),
 }
 
