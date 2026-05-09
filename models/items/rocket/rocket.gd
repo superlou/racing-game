@@ -3,7 +3,8 @@ extends RigidBody3D
 
 @onready var detonator: ShapeCast3D = $DetonatorShape
 @onready var effect_area: Area3D = $EffectArea
-@export var explosion_force := 1000.0
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@export var explosion_force := 5000.0
 
 
 func _ready() -> void:
@@ -16,6 +17,7 @@ func _physics_process(_delta: float) -> void:
 	apply_central_force(global_basis * Vector3(0, 0, 100))
 
 	if detonator.is_colliding():
+		print(detonator.get_collider(0))
 		detonate()
 
 
@@ -28,7 +30,15 @@ func detonate():
 		if body is RigidBody3D:
 			_toss_body(body)
 
+	detonator.enabled = false
+
+	print("exploding")
+	animation_player.play("explode")
+	await animation_player.animation_finished
+	print("finished")
 	queue_free()
+	await get_tree().process_frame
+	print("freed")
 
 
 func _toss_body(body: RigidBody3D):
