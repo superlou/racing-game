@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://xc4iqovpb1j1"]
+
+[ext_resource type="PackedScene" uid="uid://bcplrqvf476qp" path="res://tracks/local/harbor/harbor_ground.glb" id="1_7t8xm"]
+[ext_resource type="PackedScene" uid="uid://dykkuqaj6mg2h" path="res://tracks/local/harbor/pier1.glb" id="2_tgp6m"]
+[ext_resource type="PackedScene" uid="uid://d03xa7q4fwhq" path="res://tracks/local/harbor/harbor_hut1.glb" id="3_f32jl"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7t8xm"]
+size = Vector2(1000, 1000)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7t8xm"]
+albedo_color = Color(0.05954496, 0.6345776, 0.88735497, 1)
+
+[node name="Harbor" type="Node3D" unique_id=2052315997]
+
+[node name="harbor_ground" parent="." unique_id=1716231003 instance=ExtResource("1_7t8xm")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1527893929]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+mesh = SubResource("PlaneMesh_7t8xm")
+surface_material_override/0 = SubResource("StandardMaterial3D_7t8xm")
+
+[node name="pier1" parent="." unique_id=1397264658 instance=ExtResource("2_tgp6m")]
+transform = Transform3D(0.81831026, 0, -0.57477677, 0, 1, 0, 0.57477677, 0, 0.81831026, -73.882034, -1.0396852, 139.69325)
+
+[node name="harbor_hut1" parent="." unique_id=1759194673 instance=ExtResource("3_f32jl")]
+transform = Transform3D(0.8087194, 0, -0.5881946, 0, 1, 0, 0.5881946, 0, 0.8087194, -71.962585, 1.3898935, 120.68825)
