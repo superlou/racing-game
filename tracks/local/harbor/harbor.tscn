@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://bcplrqvf476qp" path="res://tracks/local/harbor/harbor_ground.glb" id="1_7t8xm"]
 [ext_resource type="PackedScene" uid="uid://dykkuqaj6mg2h" path="res://tracks/local/harbor/pier1.glb" id="2_tgp6m"]
 [ext_resource type="PackedScene" uid="uid://d03xa7q4fwhq" path="res://tracks/local/harbor/harbor_hut1.glb" id="3_f32jl"]
+[ext_resource type="PackedScene" uid="uid://dtp860toh1b6t" path="res://tracks/local/harbor/tennis_bubble.glb" id="4_4fx2q"]
+[ext_resource type="PackedScene" uid="uid://2g363gkceisj" path="res://tracks/local/harbor/covered_stage.glb" id="5_y4fgh"]
+[ext_resource type="PackedScene" uid="uid://d3defouomrv3" path="res://tracks/local/harbor/sej_pavillion.glb" id="6_hg73g"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7t8xm"]
 size = Vector2(1000, 1000)
@@ -12,7 +15,7 @@ albedo_color = Color(0.05954496, 0.6345776, 0.88735497, 1)
 
 [node name="Harbor" type="Node3D" unique_id=2052315997]
 
-[node name="harbor_ground" parent="." unique_id=1716231003 instance=ExtResource("1_7t8xm")]
+[node name="harbor_ground" parent="." unique_id=82638482 instance=ExtResource("1_7t8xm")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1527893929]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
@@ -24,3 +27,12 @@ transform = Transform3D(0.81831026, 0, -0.57477677, 0, 1, 0, 0.57477677, 0, 0.81
 
 [node name="harbor_hut1" parent="." unique_id=1759194673 instance=ExtResource("3_f32jl")]
 transform = Transform3D(0.8087194, 0, -0.5881946, 0, 1, 0, 0.5881946, 0, 0.8087194, -71.962585, 1.3898935, 120.68825)
+
+[node name="tennis_bubble" parent="." unique_id=557922332 instance=ExtResource("4_4fx2q")]
+transform = Transform3D(0.930264, 0, -0.3668909, 0, 1, 0, 0.3668909, 0, 0.930264, 33.890312, 4.007289, -1.7742386)
+
+[node name="covered_stage" parent="." unique_id=553426643 instance=ExtResource("5_y4fgh")]
+transform = Transform3D(-0.44267994, 0, -0.89667976, 0, 1, 0, 0.89667976, 0, -0.44267994, 177.0182, 3.993485, 135.68661)
+
+[node name="sej_pavillion" parent="." unique_id=603004195 instance=ExtResource("6_hg73g")]
+transform = Transform3D(0.9514226, 0, -0.30788806, 0, 1, 0, 0.30788806, 0, 0.9514226, 237.45831, 4.0138206, -11.930492)
