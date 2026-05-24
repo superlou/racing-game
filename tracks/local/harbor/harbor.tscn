@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dtp860toh1b6t" path="res://tracks/local/harbor/tennis_bubble.glb" id="4_4fx2q"]
 [ext_resource type="PackedScene" uid="uid://2g363gkceisj" path="res://tracks/local/harbor/covered_stage.glb" id="5_y4fgh"]
 [ext_resource type="PackedScene" uid="uid://d3defouomrv3" path="res://tracks/local/harbor/sej_pavillion.glb" id="6_hg73g"]
+[ext_resource type="PackedScene" uid="uid://cytx5v5ntufmr" path="res://tracks/local/harbor/pier2.glb" id="7_kv664"]
+[ext_resource type="PackedScene" uid="uid://ikqfmsstbrg1" path="res://tracks/local/harbor/pier3.glb" id="8_jfxth"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7t8xm"]
 size = Vector2(1000, 1000)
@@ -15,7 +17,7 @@ albedo_color = Color(0.05954496, 0.6345776, 0.88735497, 1)
 
 [node name="Harbor" type="Node3D" unique_id=2052315997]
 
-[node name="harbor_ground" parent="." unique_id=82638482 instance=ExtResource("1_7t8xm")]
+[node name="harbor_ground" parent="." unique_id=1468078109 instance=ExtResource("1_7t8xm")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1527893929]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
@@ -34,5 +36,11 @@ transform = Transform3D(0.930264, 0, -0.3668909, 0, 1, 0, 0.3668909, 0, 0.930264
 [node name="covered_stage" parent="." unique_id=553426643 instance=ExtResource("5_y4fgh")]
 transform = Transform3D(-0.44267994, 0, -0.89667976, 0, 1, 0, 0.89667976, 0, -0.44267994, 177.0182, 3.993485, 135.68661)
 
-[node name="sej_pavillion" parent="." unique_id=603004195 instance=ExtResource("6_hg73g")]
+[node name="sej_pavillion" parent="." unique_id=1760793992 instance=ExtResource("6_hg73g")]
 transform = Transform3D(0.9514226, 0, -0.30788806, 0, 1, 0, 0.30788806, 0, 0.9514226, 237.56067, 4.0138206, -13.68383)
+
+[node name="pier2" parent="." unique_id=338109342 instance=ExtResource("7_kv664")]
+transform = Transform3D(0.95895344, 0, -0.2835635, 0, 1, 0, 0.2835635, 0, 0.95895344, -14.271381, -0.56942654, 182.9559)
+
+[node name="pier3" parent="." unique_id=1246230228 instance=ExtResource("8_jfxth")]
+transform = Transform3D(0.9748663, 0, -0.22279075, 0, 1, 0, 0.22279075, 0, 0.9748663, 49.3188, -0.5830555, 197.79947)
