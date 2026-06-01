@@ -10,7 +10,6 @@
 [ext_resource type="Resource" uid="uid://c014ecvv24jsg" path="res://systems/game/player1_input_map.tres" id="8_fcqpf"]
 [ext_resource type="Script" uid="uid://6as47vdwymy3" path="res://systems/player_input.gd" id="9_2ub4j"]
 [ext_resource type="Resource" uid="uid://bk3yfr3de8pnk" path="res://systems/game/player2_input_map.tres" id="9_xtdty"]
-[ext_resource type="PackedScene" uid="uid://xc4iqovpb1j1" path="res://tracks/local/harbor/harbor.tscn" id="11_fws3a"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_fcqpf"]
 ground_color = Color(0.516267, 0.64, 0.384, 1)
@@ -74,7 +73,7 @@ metadata/_custom_type_script = "uid://b40o4uigxgwah"
 metadata/_edit_lock_ = true
 
 [node name="Car1" parent="." unique_id=284562051 instance=ExtResource("5_tpamu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -351.0454, 4.81448, -0.00531101)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06842995, 1.6050539, -0.014086366)
 show_forces = false
 
 [node name="PlayerInput" type="Node" parent="Car1" unique_id=405108268 node_paths=PackedStringArray("race_manager")]
@@ -100,6 +99,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9254551, 1.6344212, 3.8138
 
 [node name="Car4" parent="." unique_id=1508007165 instance=ExtResource("5_tpamu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1308384, 1.6344212, 3.8138924)
-
-[node name="Harbor" parent="." unique_id=2052315997 instance=ExtResource("11_fws3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -570.6971, 0, 0)
