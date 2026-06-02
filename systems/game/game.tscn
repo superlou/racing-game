@@ -73,7 +73,7 @@ metadata/_custom_type_script = "uid://b40o4uigxgwah"
 metadata/_edit_lock_ = true
 
 [node name="Car1" parent="." unique_id=284562051 instance=ExtResource("5_tpamu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06842995, 1.6050539, -0.014086366)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06842995, 1.5988662, 0.007515192)
 show_forces = false
 
 [node name="PlayerInput" type="Node" parent="Car1" unique_id=405108268 node_paths=PackedStringArray("race_manager")]

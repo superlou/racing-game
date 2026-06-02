@@ -11,6 +11,15 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_8thfb"]
 size = Vector3(1.703, 0.405, 1.748)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_2oibr"]
+radius = 0.45
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bef6f"]
+radius = 0.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_835s8"]
+radius = 0.3
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2oibr"]
 radius = 0.25
 height = 1.0
@@ -27,6 +36,18 @@ drag_scale = 0.1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1065126681]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0206642, 0.110291)
 shape = SubResource("BoxShape3D_8thfb")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1803176072]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5011916, 0.57629216)
+shape = SubResource("SphereShape3D_2oibr")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=452048430]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2539339, -0.33749223)
+shape = SubResource("SphereShape3D_bef6f")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="." unique_id=995635544]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.107806236, -0.6130471)
+shape = SubResource("SphereShape3D_835s8")
 
 [node name="Tracons" type="Node3D" parent="." unique_id=2011555597]
 

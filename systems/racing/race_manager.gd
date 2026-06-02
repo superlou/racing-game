@@ -68,7 +68,7 @@ func _on_car_entered(car:Car, checkpoint:Checkpoint) -> void:
 		if circuit.checkpoints_connect(last_checkpoint_name, this_checkpoint_name):
 			status.last_checkpoint = checkpoint
 			print(this_checkpoint_name)
-		
+
 		if circuit.is_end_of_lap(this_checkpoint_name):
 			if status.lap < race_laps:
 				status.lap += 1
